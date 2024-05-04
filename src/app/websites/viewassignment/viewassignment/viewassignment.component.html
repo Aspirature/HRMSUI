@@ -1,0 +1,109 @@
+<div class="container-fluid">
+    <!-- <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 headerColor" style="margin-top: 15px;">
+            <div class="latest">
+                <h3>My Assignment</h3>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
+                <h2>My Assignment</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="tabs">
+            <button (click)="changeTab('tab1')" [class.active]="currentTab === 'tab1'"
+                style="font-weight: 550;">Current(1)</button>
+            <button (click)="changeTab('tab2')" [class.active]="currentTab === 'tab2'"
+                style="font-weight: 550;">History(1)</button>
+        </div>
+        <div *ngIf="currentTab === 'tab1'">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Project ID</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Designation</th>
+                            <th scope="col">Percentage</th>
+                            <th scope="col">Billablity</th>
+                            <th scope="col">Billablity Role</th>
+                            <th scope="col">Manager ID</th>
+                            <th scope="col">Manager Name</th>
+                            <th scope="col">Is Active</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of currentAssign">
+                            <td>
+                                10003
+                            </td>
+                            <td>HRMS</td>
+                            <td>{{item.projectstartdate}}</td>
+                            <td>{{item.projectenddate}}</td>
+                            <td>{{item.location}}</td>
+                            <td>{{item.designation}}</td>
+                            <td>100%</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>200344</td>
+                            <td>Srinivas</td>
+                            <td>{{item.isactive?'true':'false'}}</td>
+                            <td>Assigned</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="currentTab === 'tab2'">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Project ID</th>
+                            <th scope="col">Project Name</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Designation</th>
+                            <th scope="col">Percentage</th>
+                            <th scope="col">Billablity</th>
+                            <th scope="col">Billablity Role</th>
+                            <th scope="col">Manager ID</th>
+                            <th scope="col">Manager Name</th>
+                            <th scope="col">Is Active</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of historyAssign" >
+                            <td>
+                                10003
+                            </td>
+                            <td>HRMS</td>
+                            <td>{{item.projectstartdate}}</td>
+                            <td>{{item.projectenddate}}</td>
+                            <td>{{item.location}}</td>
+                            <td>{{item.designation}}</td>
+                            <td>100%</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>200344</td>
+                            <td>Srinivas</td>
+                            <td>{{item.isactive?'true':'false'}}</td>
+                            <td>Assigned</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

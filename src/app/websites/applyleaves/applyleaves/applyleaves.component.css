@@ -1,0 +1,11 @@
+.latest h3 {
+    color: #fff;
+    padding: 15px 55px 10px 15px;
+    font-size: 16px;
+    text-transform: capitalize;
+    float: left;
+    width: auto;
+    font-weight: 700;
+    font-family: sans-serif;
+    /* margin-left: 30px; */
+}

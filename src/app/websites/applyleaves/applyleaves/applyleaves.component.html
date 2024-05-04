@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 headerColor" style="margin-top: 15px;">
+            <div class="latest">
+                <h3>Apply Leaves</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-2">
+            <p style="font-weight: 600;"><i class="fa fa-address-card-o fa-1x" aria-hidden="true"></i> Leave Policy</p>
+        </div>
+        <div class="col-md-2">
+            <p style="font-weight: 600;"><i class="fa fa-question-circle fa-1x" aria-hidden="true"></i> FAQ</p>
+        </div>
+        <div class="col-md-2">
+            <p style="font-weight: 600;"><i class="fa fa-calendar fa-1x" aria-hidden="true"></i> Holiday Schedule</p>
+        </div>
+    </div>
+
+    <form>
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-2">
+            <label style="font-weight: 600;">Start Date:</label>
+            <input type="date" class="form-control mt-2" name="dto" id="date_timepicker_start">
+        </div>
+        <div class="col-md-2">
+            <label style="font-weight: 600;">End Date:</label>
+            <input type="date" class="form-control mt-2" name="dto" id="date_timepicker_end">
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6">
+            <label style="font-weight: 600;">Absence Name:</label>
+            <select class="form-control mt-2" id="select">
+                <option value="1">Loss of Pay(0.00)</option>
+                <option value="2">Loss of Pay(0.00)</option>
+                <option value="3">Loss of Pay(0.00)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6">
+            <label style="font-weight: 600;">Absence Reason:</label>
+            <select class="form-control mt-2" id="select">
+                <option value="1">Select</option>
+                <option value="2">Child Adoption Leave for Men(42.00)</option>
+                <option value="3">Loss of Pay(0.00)</option>
+                <option value="4">Compensatory Off(0.00)</option>
+                <option value="5">Sick Leave(18.00)</option>
+                <option value="6">Paternity Leave(5.00)</option>
+                <option value="7">Casual Leave(6.00)</option>
+                <option value="8">Earned Leave(22.50)</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-3">
+            <label style="font-weight: 600;">Duration</label>
+            <p class="mt-2">1</p>
+        </div>
+        <div class="col-md-3">
+            <label style="font-weight: 600;">Current Balance</label>
+            <p class="mt-2">0.00</p>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6">
+            <label style="font-weight: 600;">Requester Comments</label>
+
+            <textarea class="form-control mt-2" id="textAreaExample" rows="4"
+                style="background: #fff;" placeholder="Type here..."></textarea>
+            <label class="form-label" for="textAreaExample">300 characters remaining</label>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6">
+            <button type="submit" class="btn btn-default">Cancel</button>&nbsp;&nbsp;
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+    </form>

@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-sm navbar-dark headerColor" *ngIf="loginService.isLoggedIn()">
+  <div class="container-fluid">
+    <span style="font-size:30px;cursor:pointer;color: aliceblue;" (click)="openNav()">&#9776;&nbsp;</span>
+    <a class="navbar-brand" href="javascript:void(0)">HRMPROJECT</a>
+    <p class="" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+    </p>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink=""></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink=""></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink=""></a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <button class="btn btn-primary" style="background-color: #004de6;" type="button" *ngIf="!loginService.isLoggedIn()">Login</button>&nbsp;&nbsp;
+        <button class="btn btn-primary" style="background-color: #004de6;" (click)="logout()"
+          *ngIf="loginService.isLoggedIn()">Logout</button>&nbsp;&nbsp;
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div id="mySidenav" class="sidenav headerColor" *ngIf="loginService.isLoggedIn()">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+  <div class="contact headerColor">
+    <h5>
+      <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+    </h5><br />
+    <h5>Mr. Srinivas</h5><br />
+    <div class="row">
+      <div class="col-lg-4">
+
+        <h5 style="cursor: pointer;" [routerLink]="['/profile']" routerLinkActive="router-link-active">
+          <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+        </h5>
+        <p style="font-weight: 600;color: #fff;cursor: pointer;" [routerLink]="['/profile']"
+          routerLinkActive="router-link-active">
+          View&nbsp;Profile
+        </p>
+      </div>
+      <div class="col-lg-4">
+        <h5>
+          <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
+        </h5>
+        <p style="font-weight: 600;color: #fff;">Need&nbsp;Help</p>
+      </div>
+      <div class="col-lg-4">
+        <h5>
+          <i class="fa fa-comments-o fa-2x" aria-hidden="true"></i>
+        </h5>
+        <p style="font-weight: 600;color: #fff;">FeedBack</p>
+      </div>
+    </div>
+    <hr style="color: #fff;" />
+    <div class="row">
+      <div class="col-lg-12">
+        <p style="font-weight: 600;color: #fff;font-size: 22px;text-align: left;"><i class="fa fa-star fa-1x"
+            aria-hidden="true"></i> Quick Access</p>
+        <hr style="color: #fff;" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <p style="font-weight: 600;color: #fff;font-size: 22px;text-align: left;"><i class="fa fa-list fa-1x"
+            aria-hidden="true"></i> My To Do's</p>
+        <hr style="color: #fff;" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <p style="font-weight: 600;color: #fff;font-size: 22px;text-align: left;"><i class="fa fa-newspaper-o fa-1x"
+            aria-hidden="true"></i> Enterprise System Inventory(Devspace)</p>
+        <hr style="color: #fff;" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <p style="font-weight: 600;color: #fff;font-size: 22px;text-align: left;"><i class="fa fa-chain fa-1x"
+            aria-hidden="true"></i> Be.Aspriture</p>
+        <hr style="color: #fff;" />
+      </div>
+    </div>
+    <div class="row" *ngIf="!loginService.isLoggedIn()">
+      <div class="col-lg-12">
+        <p style="font-weight: 600;color: #fff;font-size: 22px;text-align: left;"><i class="fa fa-sign-in fa-1x"
+            aria-hidden="true"></i> Login</p>
+        <hr style="color: #fff;" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <a (click)="logout()"
+        *ngIf="loginService.isLoggedIn()" style="font-weight: 600;color: #fff;font-size: 22px;text-align: left;text-decoration: none;cursor: pointer;"><i class="fa fa-power-off fa-1x"
+            aria-hidden="true"></i> Logout</a>
+        <hr style="color: #fff;" />
+      </div>
+    </div>
+  </div>
+</div>

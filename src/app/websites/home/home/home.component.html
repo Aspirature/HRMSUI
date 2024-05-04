@@ -1,0 +1,196 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 headerColor" style="margin-top: 15px;">
+      <div class="latest">
+        <h3>{{ greetingMessage }} Srinivas</h3>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    <h4 style="font-weight: 700;">- Be.Aspriture News</h4>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="assets/homePage/A7.jpg" alt="Card image cap">
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="assets/homePage/D1.jpg" alt="Card image cap">
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="assets/homePage/A2.jpeg" alt="Card image cap">
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="assets/homePage/A6.avif" alt="Card image cap">
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    <h4 style="font-weight: 700;">- Quick To-do's</h4>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card shadow p-3 mb-2 bg-body rounded">
+          <img class="card-img-top mb-4" src="assets/homePage/Timesheet.jpg" alt="Card image cap">
+          <div class="card-footer text-muted">
+            <b>Submit Timesheet</b>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card shadow p-3 mb-2 bg-body rounded">
+          <img class="card-img-top" src="assets/homePage/tech5.jpg" alt="Card image cap" style="height: fit-content;">
+          <div class="card-footer text-muted">
+            <b>Aspirature: Optimized</b>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 ">
+        <div class="card shadow p-3 mb-2 bg-body rounded">
+          <img class="card-img-top" src="assets/homePage/dev4.jpg" alt="Card image cap">
+          <div class="card-footer text-muted">
+            <b>Aspirature Mobile</b>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    <div class="col-md-6 mt-0">
+      <div id="accordion" class="py-0">
+        <div class="card border-0 mt-4">
+          <div class="card-header p-0 border-0" id="heading-250">
+            <button class="btn btn-link accordion-title border-0 headerColor">
+              <i class="fas text-center d-flex align-items-center justify-content-center h-100"></i>Quick Actions
+            </button>
+          </div>
+          <div aria-labelledby="heading-250" data-parent="#accordion">
+            <div class="card-body accordion-body">
+              <div class="row" style="margin-top: 20px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/time-sheet']">
+                      <i class="fa fa-clock-o fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <p style="font-weight:600">Timesheet
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/view-assignment']">
+                      <i class="fa fa-code fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">View Assignments
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/apply-leaves']" routerLinkActive="router-link-active"
+                      style="text-decoration: none;" style="width: 50px;">
+                      <i class="fa fa-address-card-o fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">
+                      <a [routerLink]="['/apply-leaves']" routerLinkActive="router-link-active"
+                        style="text-decoration: none;color: black;">Apply Leaves</a>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/holiday-calendar']" routerLinkActive="router-link-active">
+                      <i class="fa fa-calendar fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">Holiday Calendar
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/candidate-register']" routerLinkActive="router-link-active"
+                      style="text-decoration: none;" style="width: 50px;">
+                      <i class="fa fa-users fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">
+                      <a [routerLink]="['/candidate-register']" routerLinkActive="router-link-active"
+                        style="text-decoration: none;color: black;">Candidate Register Page </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 mt-0">
+      <div id="accordion" class="py-0">
+        <div class="card border-0 mt-4">
+          <div class="card-header p-0 border-0" id="heading-250">
+            <button class="btn btn-link accordion-title border-0 headerColor" data-toggle="collapse" data-target="#collapse-250"
+              aria-expanded="false" aria-controls="#collapse-250"><i
+                class="fas   text-center d-flex align-items-center justify-content-center h-100"></i>Hot Apps
+            </button>
+          </div>
+          <div aria-labelledby="heading-250" data-parent="#accordion">
+            <div class="card-body accordion-body">
+              <div class="row" style="margin-top: 20px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a href="#" style="width: 50px;">
+                      <i class="fa fa-credit-card fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">Payslips
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a href="#">
+                      <i class="fa fa-money fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">MyPay
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/time-sheet']">
+                      <i class="fa fa-clock-o fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <p style="font-weight:600">Timesheet
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/view-assignment']">
+                      <i class="fa fa-code fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">View Assignments
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

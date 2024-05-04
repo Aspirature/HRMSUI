@@ -1,0 +1,356 @@
+<div class="container-fluid">
+
+    <div class="row" style="background-color: #fff; margin-top: 15px;">
+        <div class="col-lg-2">
+            <button class="form-control btn btn-success rounded-pill">Create your Resume</button>
+        </div>
+        <div class="col-lg-2 offset-lg-8 ">
+            <button class="form-control btn btn-success rounded-pill">View Resume/Log</button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-lg-2 text-center" >
+            <h5>
+                <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+            </h5>
+            <h5 *ngFor="let item of usersDetails">{{item.username}}</h5><br />
+        </div>
+        <div class="col-lg-4 mt-4">
+            <h5>Designation</h5>
+            <!-- <p>{{experienceDetails.designation}}</p> -->
+        </div>
+        <!-- <div class="col-lg-3 mt-4 text-center">
+            <p><i class="fa fa-map-marker" style="font-size:24px"></i>&nbsp;{{locationDetailsTemp.district}}-{{locationDetailsTemp.state}}</p>
+
+        </div>
+        <div class="col-lg-3 mt-4">
+            <p><i class='fa fa-id-card' style='font-size:24px'></i>&nbsp;Home Manager: {{usersDetails.username}}</p>
+            <p><i class="fa fa-phone" style="font-size:24px"></i>&nbsp;{{contactDetails.primaryContactNo}}</p>
+        </div> -->
+    </div>
+
+     <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <h5 class="card-header"><i class="fa fa-user" style="font-size:24px"></i>&nbsp;Personal</h5>
+                <div class="card-body">
+                        <div class="row">
+                                <div class="col-md-8">
+                                    <label><b>Date of Birth</b></label>
+                                    <p style="font-weight: 500;">10/04/1997</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <label><b>Place of Birth</b></label>
+                                    <p style="font-weight: 500;">Hyderabad</p>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label><b>Blood Group</b></label><br />
+                                <p style="font-weight: 500;">O+</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Gender</b></label><br />
+                                <p style="font-weight: 500;">Male</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Maritual Status</b></label><br />
+                                <p style="font-weight: 500;">UnMarried</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-end">
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-header text-muted d-flex justify-content-between">
+                    <h5><i class="fa fa-map-marker" style="font-size:24px"></i>&nbsp;Location</h5>
+                    <div class="d-flex justify-content-between">
+                        <label class="form-check-label" for="flexSwitchCheckChecked1">Work</label>&nbsp;
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Home</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label><b>AddressLine1</b></label><br />
+                                <p style="font-weight: 500;">L1</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>AddressLine2</b></label><br />
+                                <p style="font-weight: 500;">L2</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label><b>State</b></label><br />
+                                <p style="font-weight: 500;">Telangana</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>District</b></label><br />
+                                <p style="font-weight: 500;">RR</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label><b>Pincode</b></label><br />
+                                <p style="font-weight: 500;">500090</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Country</b></label><br />
+                                <p style="font-weight: 500;">India</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-end">
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                </div>
+            </div>
+        </div> 
+        
+        <div class="col-lg-4">
+            <div class="card">
+                <h5 class="card-header"> <i class="fa fa-id-card-o" style="font-size:24px"></i>&nbsp;National ID</h5>
+                <div class="card-body" *ngFor="let item of nationalIdDetails">
+                    <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Pan Number</b></label>
+                                <p style="font-weight: 500;">{{item.pannumber}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Aaddhar Number</b></label>
+                                <p style="font-weight: 500;">{{item.addharnumber}}</p>
+                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Voter Number</b></label><br />
+                            <p style="font-weight: 500;">{{item.voternumber}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label><b>Passport Number</b></label><br />
+                            <p style="font-weight: 500;">{{item.passportnumber}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Passport Expiry Date</b></label><br />
+                            <p style="font-weight: 500;">{{item.passportexpdate}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label><b>Passport Start Date</b></label><br />
+                            <p style="font-weight: 500;">{{item.passportstartdate}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>Passport Issue Office</b></label><br />
+                            <p style="font-weight: 500;">{{item.passportissueoffice}}</p>
+                        </div>
+                    </div>
+            </div>
+
+                <div class="card-footer text-muted d-flex justify-content-end">
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header text-muted d-flex justify-content-between">
+                    <h5><i class="fa fa-book" style="font-size:24px"></i>&nbsp;Education</h5>
+                    <div class="d-flex justify-content-between">
+                        <label class="form-check-label" for="flexSwitchCheckChecked1">Graduation</label>&nbsp;
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Certification</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" *ngFor="let item of educationDetails">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Institution</b></label><br />
+                                <p style="font-weight: 500;">{{item.coursename}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Specialization</b></label><br />
+                                <p style="font-weight: 500;">{{item.coursename}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Year of Joining</b></label><br />
+                                <p style="font-weight: 500;">{{item.dateofjoined}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Year of PassedOut</b></label><br />
+                                <p style="font-weight: 500;">{{item.dateofpassedout}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Percentage</b></label><br />
+                                <p style="font-weight: 500;">{{item.percentage}}</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-end">
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="card">
+                <h5 class="card-header"><i class="fa fa-laptop" style="font-size:24px"></i>&nbsp;Experience</h5>
+                <div class="card-body" *ngFor="let item of experienceDetails">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label><b>Company Name</b></label>
+                            <p style="font-weight: 500;">{{item.companyname}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Designation</b></label>
+                            <p style="font-weight: 500;">{{item.designation}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Start Date</b></label>
+                            <p style="font-weight: 500;">{{item.startdate}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label><b>End Date</b></label>
+                            <p style="font-weight: 500;">{{item.enddate}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Total of Experience</b></label>
+                            <p style="font-weight: 500;">{{item.totalyearsexp}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Last Drawn CTC</b></label>
+                            <p style="font-weight: 500;">{{item.totalyearsexp}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-end">
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="row" style="margin-top: 20px;">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header text-muted d-flex justify-content-between">
+                    <h5><i class="fa fa-plane" style="font-size:24px"></i>&nbsp;Travel</h5>
+                    <div class="d-flex justify-content-between">
+                        <h5>Passport</h5>
+                    </div>
+                </div>
+                <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label><b>Country</b></label><br />
+                                <p style="font-weight: 500;">India</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Passport No.</b></label><br />
+                                <p style="font-weight: 500;">1234567</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <label><b>Issue Date</b></label><br />
+                                <p style="font-weight: 500;">20/02/2023</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Expiry Date</b></label><br />
+                                <p style="font-weight: 500;">30/04/2027</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-end">
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                </div>
+            </div>
+        </div>
+
+         <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header text-muted d-flex justify-content-between">
+                    <h5><i class="fa fa-user" style="font-size:24px"></i>&nbsp;Family</h5>
+                    <div class="d-flex justify-content-between">
+                        <label class="form-check-label" for="flexSwitchCheckChecked1">Emergency Contact</label>&nbsp;
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
+                            <label class="form-check-label" for="flexSwitchCheckChecked">Dependents</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Emergency Contact No</b></label><br />
+                                <p style="font-weight: 500;">100</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Emergency Contact Name</b></label><br />
+                                <p style="font-weight: 500;">Kohil</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label><b>Primary Contact No</b></label><br />
+                                <p style="font-weight: 500;">12345</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Secondary Contact No</b></label><br />
+                                <p style="font-weight: 500;">123455</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-end">
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                </div>
+            </div>
+        </div> 
+        
+        <div class="col-sm-4">
+            <div class="card">
+                <h5 class="card-header"> <i class="fa fa-user" style="font-size:24px"></i>&nbsp;People you should know
+                </h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-3 mt-4">
+                            <p>
+                                To seek clarification on HR queries, please navigate to LIVE Support app.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-end">
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                </div>
+            </div>
+        </div>
+    </div>  -->
+</div>

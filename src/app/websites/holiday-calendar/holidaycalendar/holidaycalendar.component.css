@@ -1,0 +1,11 @@
+
+th {
+    background-color: #004de6;
+  }
+
+
+  table, th, td {
+    /* color: #fff; */
+    border: 1px solid black;
+    border-collapse: collapse;
+  }

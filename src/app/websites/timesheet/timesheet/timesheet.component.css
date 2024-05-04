@@ -1,0 +1,22 @@
+.latest h3 {
+    color: #fff;
+    padding: 15px 55px 10px 15px;
+    font-size: 16px;
+    text-transform: capitalize;
+    width: auto;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }

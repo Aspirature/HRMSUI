@@ -1,0 +1,93 @@
+.latest h3 {
+    color: #fff;
+    padding: 15px 55px 10px 15px;
+    font-size: 16px;
+    text-transform: capitalize;
+    float: left;
+    width: auto;
+    font-weight: 700;
+    font-family: sans-serif;
+    /* margin-left: 30px; */
+}
+
+/* accordion */
+  
+#accordion {
+    .button.collapse i:before {  
+    content: "\f068";
+}
+  .button.collapse i:before {
+    content: "\f067";
+}
+    .card-header{
+        margin-bottom: 8px;
+    }
+    .accordion-title{
+        position: relative;
+        display: block;
+        /* padding:8px 0 8px 50px; */
+        /* background: #213744; */
+        border-radius: 8px;
+        overflow: hidden;
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        width: 100%;
+        text-align: left;
+        height: 60px;
+        transition: all .4s ease-in-out; 
+        i{
+            position: absolute;
+            /* width: 40px; */
+            height: 100%;
+            left: 0;
+            top: 0;
+            /* color: #fff; */
+            background: radial-gradient(rgba(#213744, .8), #213744);
+            text-align: center;
+            border-right: 1px solid transparent;
+        }
+        &:hover{
+            padding-left: 10px;
+            background: #0055ff;
+            color: #fff;
+            
+            i {
+                border-right: 1px solid #fff;
+            }
+        }
+    }
+    .accordion-body{
+        padding: 0px;
+
+        ul {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        
+        li {
+            padding-left: 1.2rem;
+            text-indent: -1.2rem;
+
+            &:before {
+                content: "\f10a";
+                padding-right: 5px;
+                font-family: "Flaticon";
+                font-size: 16px;
+                font-style: normal;
+                color: #213744;
+            }
+        }
+    }
+}
+
+.expect{
+    background-color: #F1F6FC;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px #e1e1e1;
+    width: 100%;
+    text-align: center;
+  }

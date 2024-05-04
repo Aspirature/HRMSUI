@@ -1,0 +1,283 @@
+{
+    "personalDetails":[
+      {
+        "userId": 1,
+        "dOB": "2000-06-30",
+        "placeofBirth": "Nellore",
+        "bloodGroup":"O+",
+        "maritualStatus":"Single",
+        "gender":"Male"
+      },
+      {
+        "userId": 2,
+        "dOB": "1994-02-13",
+        "placeofBirth": "Hyd",
+        "bloodGroup":"O-",
+        "maritualStatus":"Single",
+        "gender":"Female"
+      },
+      {
+        "userId": 3,
+        "dOB": "1998-12-04",
+        "placeofBirth": "AP",
+        "bloodGroup":"AB+",
+        "maritualStatus":"Married",
+        "gender":"Male"
+      }
+    ],
+
+    "nationalIdDetails":[
+      {
+        "userId":1,
+        "perminentAccNo": "COZPP123P",
+        "voterId":"ZAP32145SS"
+      },
+      {
+        "userId":2,
+        "perminentAccNo": "BBAX2357P",
+        "voterId":"FSAE865DF"
+      },
+      {
+        "userId":3,
+        "perminentAccNo": "YTRT2345I",
+        "voterId":"VTXU789O"
+      }
+    ],
+    
+    "usersDetails": [
+      {
+        "userId": 1,
+        "username": "srinivas",
+        "password": "srinu@123"
+      },
+      {
+        "userId": 2,
+        "username": "pradeep",
+        "password": "p@123"
+      },
+      {
+        "userId": 3,
+        "username": "vijay",
+        "password": "vijay@123"
+      }
+    ],
+
+    "locationDetailsTemp": [
+      {
+        "userId": 1,
+        "addressLine1": "123 Main Street",
+        "addressLine2": "Apt 101",
+        "state": "AP",
+        "district": "Nellore",
+        "pincode": "500080",
+        "country": "India"
+      },
+      {
+        "userId": 2,
+        "addressLine1": "456 Oak Street",
+        "addressLine2": "",
+        "state": "TG",
+        "district": "RR",
+        "pincode": "500090",
+        "country": "India"
+      },
+      {
+        "userId": 3,
+        "addressLine1": "789 Dell street",
+        "addressLine2": "Suite 201",
+        "state": "AP",
+        "district": "Nellore",
+        "pincode": "500080",
+        "country": "India"
+      }
+    ],
+
+    "locationDetailsPrem": [
+        {
+          "userId": 1,
+          "addressLine1": "123 Main Street",
+          "addressLine2": "Apt 101",
+          "state": "AP",
+          "district": "Nellore",
+          "pincode": "500080",
+          "country": "India"
+        },
+        {
+          "userId": 2,
+          "addressLine1": "456 Oak Street",
+          "addressLine2": "",
+          "state": "TG",
+          "district": "RR",
+          "pincode": "500090",
+          "country": "India"
+        },
+        {
+          "userId": 3,
+          "addressLine1": "789 Dell street",
+          "addressLine2": "Suite 201",
+          "state": "AP",
+          "district": "Nellore",
+          "pincode": "500080",
+          "country": "India"
+        }
+    ],
+    
+    "experienceDetails": [
+          {
+            "userId": 1,
+            "companyName": "ABC Corp",
+            "designation": "Software Engineer",
+            "startDate": "2020-01-01",
+            "endDate": "2022-03-31",
+            "totalYearsExperience": {
+              "years": 2.2
+            }
+          },
+          {
+            "userId": 2,
+            "companyName": "XYZ Inc",
+            "designation": "Senior Software Engineer",
+            "startDate": "2022-04-01",
+            "endDate": null,
+            "totalYearsExperience": {
+              "years": 2.8
+            }
+          },
+          {
+            "userId": 2,
+            "companyName": "PQR Tech",
+            "designation": "Product Manager",
+            "startDate": "2019-06-15",
+            "endDate": "2023-05-31",
+            "totalYearsExperience": {
+              "years": 3.9
+            }
+          }
+    ],
+
+    "educationDetails": [
+          {
+            "userId": 1,
+            "SSC": {
+              "institution": "Nellore High School",
+              "yearOfJoining": 2010,
+              "yearOfPassedOut": 2011
+            },
+            "higherEducation": {
+              "institution": "Sri chaitanya College",
+              "yearOfJoining": 2011,
+              "yearOfPassedOut": 2013
+            },
+            "graduate": {
+              "institution": "Kakinada University",
+              "specialization":"CSE",
+              "yearOfJoining": 2013,
+              "yearOfPassedOut": 2017
+            },
+            "undergraduate": {
+              "institution": "KKPK University",
+              "yearOfJoining": 2017,
+              "yearOfPassedOut": 2019 
+            }
+          },
+          {
+            "userId": 2,
+            "SSC": {
+              "institution": "Little star High School",
+              "yearOfJoining": 2008,
+              "yearOfPassedOut": 2009
+            },
+            "higherEducation": {
+              "institution": "Narayana Jr. College",
+              "yearOfJoining": 2009,
+              "yearOfPassedOut": 2011
+            },
+            "graduate": {
+              "institution": "JNTUH University",
+              "specialization":"MECH",
+              "yearOfJoining": 2011,
+              "yearOfPassedOut": 2015
+            },
+            "undergraduate": null
+          },
+          {
+            "userId": 3,
+            "SSC": {
+              "institution": "AP Model School",
+              "yearOfJoining": 2002,
+              "yearOfPassedOut": 2003
+            },
+            "higherEducation": {
+              "institution": "Reddy's College",
+              "yearOfJoining": 2003,
+              "yearOfPassedOut": 2005
+            },
+            "graduate": {
+              "institution": "JNTUK University",
+              "specialization":"ECE",
+              "yearOfJoining": 2005,
+              "yearOfPassedOut": 2009
+            },
+            "undergraduate": {
+                "institution": "NELLORE University",
+                "yearOfJoining": 2009,
+                "yearOfPassedOut": 2011 
+              }
+          }
+    ],
+    
+    "travelDetails": [
+          {
+            "userId": 1,
+            "passportNumber": "A123456",
+            "expiryDate": "2025-06-30",
+            "issuedDate": "2020-06-30",
+            "issuedOffice": "SVS Visa Services",
+            "country":"India"
+          },
+          {
+            "userId": 2,
+            "passportNumber": "B987654",
+            "expiryDate": "2024-12-15",
+            "issuedDate": "2019-12-15",
+            "issuedOffice": "KKR Visa Services",
+            "country":"AUS"
+          },
+          {
+            "userId": 3,
+            "passportNumber": "C567890",
+            "expiryDate": "2026-03-20",
+            "issuedDate": "2021-03-20",
+            "issuedOffice": "CSK Visa Services",
+            "country":"USA"
+          }
+    ],
+        
+    "contactDetails": [
+              {
+                "userId": 1,
+                "primaryContactNo": "1234567890",
+                "secondaryContactNo": "9876543210",
+                "emergencyContactNo": "9999999999",
+                "emergencyContactName": "Kohil",
+                "emergencyContactRelation": "Family"
+              },
+              {
+                "userId": 2,
+                "primaryContactNo": "1112223333",
+                "secondaryContactNo": "4445556666",
+                "emergencyContactNo": "8888888888",
+                "emergencyContactName": "Dhoni",
+                "emergencyContactRelation": "Friend"
+              },
+              {
+                "userId": 3,
+                "primaryContactNo": "9998887777",
+                "secondaryContactNo": "6665554444",
+                "emergencyContactNo": "3333333333",
+                "emergencyContactName": "Rohit",
+                "emergencyContactRelation": "Colleague"
+              }
+    ]
+  }
+  
