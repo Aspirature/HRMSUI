@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,25 @@ export class HomeComponent implements OnInit {
 
   currentTime: Date = new Date();
   greetingMessage: string | null | undefined;
+  usersDetails:any[]=[];
 
-  constructor() { }
+  constructor(private profile:UserService) { }
 
   ngOnInit(): void {
+    this.userData();
     this.currentTime = new Date();
     this.setGreetingMessage();
+  }
+
+   // userData
+
+   userData(){
+    let empId = 1;
+    this.profile.getEmployeeDetailsData(empId).subscribe((data:any)=>{
+      this.usersDetails = data;
+    },(error) => {
+      console.error('Error fetching users details:', error);
+    });
   }
 
   setGreetingMessage() {

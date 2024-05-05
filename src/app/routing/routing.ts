@@ -42,6 +42,10 @@ export const MainRoutes = [
     {
         path:'holiday-calendar',
         loadChildren:() => import('../websites/holiday-calendar/holiday-calendar.module').then(m=>m.HolidayCalendarModule)
+    },
+    {
+        path:'employee-register',
+        loadChildren:() => import('../websites/employee-reg/employee-reg.module').then(m=>m.EmployeeRegModule)
     }
 
 ]

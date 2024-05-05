@@ -1,4 +1,7 @@
+
 <div class="container-fluid">
+
+   
 
     <div class="row" style="background-color: #fff; margin-top: 15px;">
         <div class="col-lg-2">
@@ -14,51 +17,51 @@
             <h5>
                 <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
             </h5>
-            <h5 *ngFor="let item of usersDetails">{{item.username}}</h5><br />
+            <button class="form-control btn btn-success rounded-pill" style="width:100px;background-color: blue;color: #fff;">Certify</button>
         </div>
-        <div class="col-lg-4 mt-4">
-            <h5>Designation</h5>
-            <!-- <p>{{experienceDetails.designation}}</p> -->
+        <div class="col-lg-4 mt-3">
+            <h5 *ngFor="let item of usersDetails"><b>{{item.username}}</b></h5>
+            <p *ngFor="let item of usersDetails">{{item.designation}} | AppDev Account</p>
         </div>
-        <!-- <div class="col-lg-3 mt-4 text-center">
-            <p><i class="fa fa-map-marker" style="font-size:24px"></i>&nbsp;{{locationDetailsTemp.district}}-{{locationDetailsTemp.state}}</p>
-
+        <div class="col-lg-3 mt-4 text-center">
+            <p  *ngFor="let location of locationDetailsTemp"><i class="fa fa-map-marker" style="font-size:24px"></i>&nbsp;{{location.state}}</p>
+            <p *ngFor="let personal of personalDetails"><i class="fa fa-phone" style="font-size:24px"></i>&nbsp;{{personal.primaryPhNo}}</p>
         </div>
         <div class="col-lg-3 mt-4">
-            <p><i class='fa fa-id-card' style='font-size:24px'></i>&nbsp;Home Manager: {{usersDetails.username}}</p>
-            <p><i class="fa fa-phone" style="font-size:24px"></i>&nbsp;{{contactDetails.primaryContactNo}}</p>
-        </div> -->
+            <p *ngFor="let item of usersDetails"><i class='fa fa-id-card' style='font-size:24px'></i>&nbsp;Home Manager: {{item.username}}</p>
+            
+        </div>
     </div>
 
      <div class="row">
         <div class="col-lg-4">
             <div class="card">
                 <h5 class="card-header"><i class="fa fa-user" style="font-size:24px"></i>&nbsp;Personal</h5>
-                <div class="card-body">
+                <div class="card-body" *ngFor="let personal of personalDetails">
                         <div class="row">
                                 <div class="col-md-8">
                                     <label><b>Date of Birth</b></label>
-                                    <p style="font-weight: 500;">10/04/1997</p>
+                                    <p style="font-weight: 500;">{{personal.dateOfBirth}}</p>
                                 </div>
                                 <div class="col-md-4">
                                     <label><b>Place of Birth</b></label>
-                                    <p style="font-weight: 500;">Hyderabad</p>
+                                    <p style="font-weight: 500;" >{{personal.placeOfBirth}}</p>
                                 </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
                                 <label><b>Blood Group</b></label><br />
-                                <p style="font-weight: 500;">O+</p>
+                                <p style="font-weight: 500;">{{personal.bloodGroup}}</p>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4" >
                                 <label><b>Gender</b></label><br />
-                                <p style="font-weight: 500;">Male</p>
+                                <p style="font-weight: 500;" *ngFor="let item of usersDetails">{{item.gender}}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label><b>Maritual Status</b></label><br />
-                                <p style="font-weight: 500;">UnMarried</p>
+                                <p style="font-weight: 500;" *ngFor="let item of usersDetails">{{item.materialstatus}}</p>
                             </div>
                         </div>
                 </div>
@@ -81,36 +84,36 @@
                     </div>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body" *ngFor="let location of locationDetailsTemp">
                         <div class="row">
                             <div class="col-md-8">
                                 <label><b>AddressLine1</b></label><br />
-                                <p style="font-weight: 500;">L1</p>
+                                <p style="font-weight: 500;">{{location.addresslinE1}}</p>
                             </div>
                             <div class="col-md-4">
                                 <label><b>AddressLine2</b></label><br />
-                                <p style="font-weight: 500;">L2</p>
+                                <p style="font-weight: 500;">{{location.addresslinE2}}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-8">
                                 <label><b>State</b></label><br />
-                                <p style="font-weight: 500;">Telangana</p>
+                                <p style="font-weight: 500;">{{location.state}}</p>
                             </div>
                             <div class="col-md-4">
                                 <label><b>District</b></label><br />
-                                <p style="font-weight: 500;">RR</p>
+                                <p style="font-weight: 500;">{{location.districtname}}</p>
                             </div>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-8">
                                 <label><b>Pincode</b></label><br />
-                                <p style="font-weight: 500;">500090</p>
+                                <p style="font-weight: 500;">{{location.pincode}}</p>
                             </div>
                             <div class="col-md-4">
                                 <label><b>Country</b></label><br />
-                                <p style="font-weight: 500;">India</p>
+                                <p style="font-weight: 500;">{{location.country}}</p>
                             </div>
                         </div>
                 </div>
@@ -146,12 +149,12 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label><b>Passport Expiry Date</b></label><br />
-                            <p style="font-weight: 500;">{{item.passportexpdate}}</p>
-                        </div>
-                        <div class="col-md-6">
                             <label><b>Passport Start Date</b></label><br />
                             <p style="font-weight: 500;">{{item.passportstartdate}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label><b>Passport Expiry Date</b></label><br />
+                            <p style="font-weight: 500;">{{item.passportexpdate}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -269,21 +272,21 @@
                         <div class="row">
                             <div class="col-md-8">
                                 <label><b>Country</b></label><br />
-                                <p style="font-weight: 500;">India</p>
+                                <p style="font-weight: 500;" *ngFor="let location of locationDetailsTemp">{{location.country}}</p>
                             </div>
                             <div class="col-md-4">
                                 <label><b>Passport No.</b></label><br />
-                                <p style="font-weight: 500;">1234567</p>
+                                <p style="font-weight: 500;" *ngFor="let nationalDetails of nationalIdDetails">{{nationalDetails.passportnumber}}</p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" *ngFor="let nationalDetails of nationalIdDetails">
                             <div class="col-md-8">
                                 <label><b>Issue Date</b></label><br />
-                                <p style="font-weight: 500;">20/02/2023</p>
+                                <p style="font-weight: 500;">{{nationalDetails.passportstartdate}}</p>
                             </div>
                             <div class="col-md-4">
                                 <label><b>Expiry Date</b></label><br />
-                                <p style="font-weight: 500;">30/04/2027</p>
+                                <p style="font-weight: 500;">{{nationalDetails.passportexpdate}}</p>
                             </div>
                         </div>
                 </div>
@@ -306,25 +309,25 @@
                     </div>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body" *ngFor="let personal of personalDetails">
                         <div class="row">
                             <div class="col-md-6">
                                 <label><b>Emergency Contact No</b></label><br />
-                                <p style="font-weight: 500;">100</p>
+                                <p style="font-weight: 500;">{{personal.emergencyPhNo}}</p>
                             </div>
                             <div class="col-md-6">
                                 <label><b>Emergency Contact Name</b></label><br />
-                                <p style="font-weight: 500;">Kohil</p>
+                                <p style="font-weight: 500;">{{personal.emergencyContactName}}</p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label><b>Primary Contact No</b></label><br />
-                                <p style="font-weight: 500;">12345</p>
+                                <p style="font-weight: 500;">{{personal.primaryPhNo}}</p>
                             </div>
                             <div class="col-md-6">
                                 <label><b>Secondary Contact No</b></label><br />
-                                <p style="font-weight: 500;">123455</p>
+                                <p style="font-weight: 500;">{{personal.secondaryPhNo}}</p>
                             </div>
                         </div>
                 </div>
@@ -352,5 +355,5 @@
                 </div>
             </div>
         </div>
-    </div>  -->
+    </div> 
 </div>

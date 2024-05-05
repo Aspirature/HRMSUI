@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 headerColor" style="margin-top: 15px;">
       <div class="latest">
-        <h3>{{ greetingMessage }} Srinivas</h3>
+        <h3 *ngFor="let item of usersDetails">{{ greetingMessage }}  {{item.username}}</h3>
       </div>
     </div>
   </div>
@@ -72,32 +72,29 @@
           <div aria-labelledby="heading-250" data-parent="#accordion">
             <div class="card-body accordion-body">
               <div class="row" style="margin-top: 20px;">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                   <div class="expect">
                     <a [routerLink]="['/time-sheet']">
-                      <i class="fa fa-clock-o fa-4x" aria-hidden="true"></i>
+                      <i class="fa fa-clock-o fa-3x" aria-hidden="true"></i>
                     </a>
-                    <p style="font-weight:600">Timesheet
+                    <p style="font-weight:600">Submit Timesheet
                     </p>
                   </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                   <div class="expect">
                     <a [routerLink]="['/view-assignment']">
-                      <i class="fa fa-code fa-4x"></i>
+                      <i class="fa fa-code fa-3x"></i>
                     </a>
                     <p style="font-weight:600">View Assignments
                     </p>
                   </div>
                 </div>
-
-              </div>
-              <div class="row" style="margin-top: 15px;">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                   <div class="expect">
                     <a [routerLink]="['/apply-leaves']" routerLinkActive="router-link-active"
                       style="text-decoration: none;" style="width: 50px;">
-                      <i class="fa fa-address-card-o fa-4x"></i>
+                      <i class="fa fa-address-card-o fa-3x"></i>
                     </a>
                     <p style="font-weight:600">
                       <a [routerLink]="['/apply-leaves']" routerLinkActive="router-link-active"
@@ -105,6 +102,10 @@
                     </p>
                   </div>
                 </div>
+
+              </div>
+              <div class="row" style="margin-top: 15px;">
+               
                 <div class="col-lg-6">
                   <div class="expect">
                     <a [routerLink]="['/holiday-calendar']" routerLinkActive="router-link-active">
@@ -125,6 +126,60 @@
                     <p style="font-weight:600">
                       <a [routerLink]="['/candidate-register']" routerLinkActive="router-link-active"
                         style="text-decoration: none;color: black;">Candidate Register Page </a>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/employee-register']" routerLinkActive="router-link-active"
+                      style="text-decoration: none;" style="width: 50px;">
+                      <i class="fa fa-user-circle-o fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">
+                      <a [routerLink]="['/employee-register']" routerLinkActive="router-link-active"
+                        style="text-decoration: none;color: black;">Employee Register Page </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+                      style="text-decoration: none;" style="width: 50px;">
+                      <i class="fa fa-clock-o fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">
+                      <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+                        style="text-decoration: none;color: black;">View Timesheet </a>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+                      style="text-decoration: none;" style="width: 50px;">
+                      <i class="fa fa-laptop fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">
+                      <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+                        style="text-decoration: none;color: black;">Request Laptop Accessories  </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+                      style="text-decoration: none;" style="width: 50px;">
+                      <i class="fa fa-times fa-4x"></i>
+                    </a>
+                    <p style="font-weight:600">
+                      <a [routerLink]="['/home']" routerLinkActive="router-link-active"
+                        style="text-decoration: none;color: black;">Associate Profile </a>
                     </p>
                   </div>
                 </div>
@@ -187,6 +242,59 @@
 
               </div>
 
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/profile']">
+                      <i class="fa fa-times fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <p style="font-weight:600">Associate&nbsp;360
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/home']">
+                      <i class="fa fa-envelope fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <p style="font-weight:600">E-Letter
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/home']">
+                      <i class="fa fa-database fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <p style="font-weight:600">People&nbsp;Soft&nbsp;HCM
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/home']">
+                      <i class="fa fa-graduation-cap fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <p style="font-weight:600">My&nbsp;Career
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 15px;">
+                <div class="col-lg-6">
+                  <div class="expect">
+                    <a [routerLink]="['/home']">
+                      <i class="fa fa-cog fa-4x" aria-hidden="true"></i>
+                    </a>
+                    <p style="font-weight:600">Go&nbsp;Perform
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

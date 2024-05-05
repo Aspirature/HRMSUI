@@ -4,7 +4,6 @@
     <a class="navbar-brand" href="javascript:void(0)">HRMPROJECT</a>
     <p class="" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false"
       aria-label="Toggle navigation">
-      <!-- <span class="navbar-toggler-icon"></span> -->
     </p>
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
@@ -18,11 +17,20 @@
           <a class="nav-link" routerLink=""></a>
         </li>
       </ul>
-      <form class="d-flex">
-        <button class="btn btn-primary" style="background-color: #004de6;" type="button" *ngIf="!loginService.isLoggedIn()">Login</button>&nbsp;&nbsp;
+      <div class="d-flex">
+        <div class="input-group" >
+          <input class="form-control mr-sm-2" *ngIf="isInputVisible" style="width: 300px;" type="search" placeholder="Search" aria-label="Search">&nbsp;
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" (click)="toggleInputVisibility()">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- <button class="btn btn-primary" style="background-color: #004de6;" type="button" *ngIf="!loginService.isLoggedIn()">Login</button>&nbsp;&nbsp;
         <button class="btn btn-primary" style="background-color: #004de6;" (click)="logout()"
-          *ngIf="loginService.isLoggedIn()">Logout</button>&nbsp;&nbsp;
-      </form>
+          *ngIf="loginService.isLoggedIn()">Logout</button>&nbsp;&nbsp; -->
+      </div>
     </div>
   </div>
 </nav>
@@ -33,7 +41,8 @@
     <h5>
       <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
     </h5><br />
-    <h5>Mr. Srinivas</h5><br />
+    <h5 *ngFor="let item of usersDetails">{{item.username}}</h5><br />
+
     <div class="row">
       <div class="col-lg-4">
 

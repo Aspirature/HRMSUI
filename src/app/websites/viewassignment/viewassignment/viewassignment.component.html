@@ -16,11 +16,14 @@
     </div>
     <div class="row" style="margin-top: 20px;">
         <div class="tabs">
-            <button (click)="changeTab('tab1')" [class.active]="currentTab === 'tab1'"
-                style="font-weight: 550;">Current(1)</button>
-            <button (click)="changeTab('tab2')" [class.active]="currentTab === 'tab2'"
-                style="font-weight: 550;">History(1)</button>
+            <button (click)="changeTab('tab1')" [class.active]="currentTab === 'tab1'" style="font-weight: 550;">
+                Current({{ currentCount }})
+            </button>
+            <button (click)="changeTab('tab2')" [class.active]="currentTab === 'tab2'" style="font-weight: 550;">
+                History({{ historyCount }})
+            </button>
         </div>
+        
         <div *ngIf="currentTab === 'tab1'">
             <div class="table-responsive">
                 <table class="table">
@@ -37,7 +40,6 @@
                             <th scope="col">Billablity Role</th>
                             <th scope="col">Manager ID</th>
                             <th scope="col">Manager Name</th>
-                            <th scope="col">Is Active</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -56,8 +58,8 @@
                             <td>No</td>
                             <td>200344</td>
                             <td>Srinivas</td>
-                            <td>{{item.isactive?'true':'false'}}</td>
-                            <td>Assigned</td>
+                            <!-- <td>{{item.isactive?'true':'false'}}</td> -->
+                            <td>{{currentAssignStatus}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -79,7 +81,6 @@
                             <th scope="col">Billablity Role</th>
                             <th scope="col">Manager ID</th>
                             <th scope="col">Manager Name</th>
-                            <th scope="col">Is Active</th>
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
@@ -98,8 +99,8 @@
                             <td>No</td>
                             <td>200344</td>
                             <td>Srinivas</td>
-                            <td>{{item.isactive?'true':'false'}}</td>
-                            <td>Assigned</td>
+                            <!-- <td>{{item.isactive?'true':'false'}}</td> -->
+                            <td>{{historyAssignstatus}}</td>
                         </tr>
                     </tbody>
                 </table>

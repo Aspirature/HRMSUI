@@ -10,14 +10,31 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private rtc:Router, public userS:UserService,public loginService:LoginService) { }
+  isInputVisible: boolean = false;
+  usersDetails:any[]=[];
+
+  constructor(private rtc:Router, public profile:UserService,public loginService:LoginService) { }
 
   ngOnInit(): void {
+    this.userData();
     this.openNav();
     this.closeNav();
     this.logout();
   }
 
+  userData(){
+    let empId = 1;
+    this.profile.getProfileData(empId).subscribe((data:any)=>{
+      this.usersDetails = data;
+    },(error) => {
+      console.error('Error fetching users details:', error);
+    });
+  }
+
+  toggleInputVisibility(): void {
+    this.isInputVisible = !this.isInputVisible;
+  }
+  
    openNav() {
     let x:any = document.getElementById("mySidenav");
     x.style.width = "33%";
