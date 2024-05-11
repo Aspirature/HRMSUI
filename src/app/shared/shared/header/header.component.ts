@@ -22,13 +22,20 @@ export class HeaderComponent implements OnInit {
     this.logout();
   }
 
-  userData(){
-    let empId = 1;
-    this.profile.getProfileData(empId).subscribe((data:any)=>{
-      this.usersDetails = data;
-    },(error) => {
-      console.error('Error fetching users details:', error);
-    });
+  
+   // userData
+
+   userData() {
+    const userName = localStorage.getItem('loginSessId');
+    if (userName) {
+      this.profile.getEmployeeDetailsData(userName).subscribe((data: any) => {
+        this.usersDetails = data;
+      }, (error) => {
+        console.error('Error fetching users details:', error);
+      });
+    } else {
+      alert('Username not found in localStorage');
+    }
   }
 
   toggleInputVisibility(): void {
@@ -52,6 +59,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
+    localStorage.removeItem('loginSessId');
     this.loginService.logout();
   }
 

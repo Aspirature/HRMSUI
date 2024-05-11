@@ -22,13 +22,17 @@ export class HomeComponent implements OnInit {
 
    // userData
 
-   userData(){
-    let empId = 1;
-    this.profile.getEmployeeDetailsData(empId).subscribe((data:any)=>{
-      this.usersDetails = data;
-    },(error) => {
-      console.error('Error fetching users details:', error);
-    });
+   userData() {
+    const userName = localStorage.getItem('loginSessId');
+    if (userName) {
+      this.profile.getEmployeeDetailsData(userName).subscribe((data: any) => {
+        this.usersDetails = data;
+      }, (error) => {
+        console.error('Error fetching users details:', error);
+      });
+    } else {
+      alert('Username not found in localStorage');
+    }
   }
 
   setGreetingMessage() {

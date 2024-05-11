@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { EmployeeRegRoutingModule } from './employee-reg-routing.module';
 import { EmployeeRegComponent } from './employee-reg/employee-reg.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     EmployeeRegRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class EmployeeRegModule { }

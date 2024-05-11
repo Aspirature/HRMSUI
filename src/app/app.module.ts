@@ -10,6 +10,8 @@ import { PdffilesService } from './services/pdffiles.service';
 import { UserService } from './services/user.service';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginService } from './services/login.service';
+import { LocationsService } from './services/locations.service';
+import { PosturlsService } from './services/posturls.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import { LoginService } from './services/login.service';
     SharedModule,
     HttpClientModule
   ],
-  providers: [PdffilesService,UserService,LoginService],
+  providers: [PdffilesService,UserService,LoginService, LocationsService, PosturlsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

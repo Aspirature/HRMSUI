@@ -10,23 +10,16 @@ export class LoginService {
   // private readonly AUTH_FLAG_KEY = 'isLoggedIn';
 
   private isAuthenticated: boolean = false;
+  employeeUserName:any;
 
   constructor(private router:Router,private http:HttpClient) { }
 
   loginUrl:any = 'https://localhost:7003/api/User/getUserAsync?userName=';
-
-  // getUserData() {
-  //   let url = 'https://localhost:7003/api/User/getUserAsync?userName=pradeep&password=pradeep'
-  //   return this.http.get(url);
-  // }
-
-  getUser(userName: string, password: string) {
-    return this.http.get(this.loginUrl + userName + '&password=' + password );
-  }
-
+  
   login(userName: string, password: string): boolean {
     if(this.http.get(this.loginUrl + userName + '&password=' + password )){
-      // localStorage.setItem(this.AUTH_FLAG_KEY, 'true');
+      this.employeeUserName=userName;
+      localStorage.setItem('loginSessId', this.employeeUserName);
       this.isAuthenticated = true;
       return true;
     }

@@ -1,49 +1,52 @@
 <div class="container-fluid">
 
     <div class="row">
-        <div class="col-md-10 offset-md-1">
+        <div class="col-md-10 offset-md-1" style="border: 1px solid #ccc;">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
                     <h2><b>Employee Details</b></h2>
                 </div>
                 <div class="row">
                     <div class="col-md-0">
-                        <form>
+                        <form [formGroup]="myForm" (ngSubmit)="submitForm()">
                             <div class="row " style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">First Name:</label>
-                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                    <input type="text" class="form-control mt-2" formControlName="firstName" placeholder="First Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Last Name:</label>
-                                    <input type="text" class="form-control mt-2" name="lname" required>
+                                    <input type="text" class="form-control mt-2"  formControlName="firstName" placeholder="First Name" required>
                                 </div>
                             </div>
 
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">Email:</label>
+                                    <label style="font-weight: 600;">Personal Email:</label>
                                     <input type="email" placeholder="me@example.com" class="form-control mt-2"
-                                        name="email" required>
+                                    formControlName="personalEmail" placeholder="Personal Mail" required>
                                 </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Official Email:</label>
+                                    <input type="email" placeholder="me@example.com" class="form-control mt-2"
+                                    formControlName="officialEmail" placeholder="Official Mail" required>
+                                </div>
+                                
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">DOB:</label>
-                                    <input type="date" class="form-control mt-2" name="lname" required>
+                                    <input type="date" class="form-control mt-2"  formControlName="dOB" placeholder="DOB" required>
                                 </div>
-                            </div>
-
-                            <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Mobile:</label>
-                                    <input type="text" class="form-control mt-2" name="email" required>
+                                    <input type="text" class="form-control mt-2"  formControlName="mobile" placeholder="Mobile" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <label style="font-weight: 600;">Phone:</label>
-                                    <input type="text" class="form-control mt-2" name="lname">
-                                </div>
+                               
                             </div>
 
-                            <div class="row" style="margin-top: 20px;">
+                            <!-- <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">PAN Number:</label>
                                     <input type="text" class="form-control mt-2" name="pan" required>
@@ -52,51 +55,79 @@
                                     <label style="font-weight: 600;">Location:</label>
                                     <input type="text" class="form-control mt-2" name="location" required>
                                 </div>
+                            </div> -->
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Gender:</label>
+                                    <select class="form-control"  formControlName="gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Others</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Maritual Status:</label>
+                                    <select class="form-control"  formControlName="marritualStatus" required>
+                                        <option value="">Select Maritual Status</option>
+                                        <option>Married</option>
+                                        <option>UnMarried</option>
+                                        <option>Divorce</option>
+                                      </select>
+                                </div>
                             </div>
 
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">Current Company:</label>
-                                    <input type="text" class="form-control mt-2" name="company" required>
+                                    <label style="font-weight: 600;">Age:</label>
+                                    <input type="text" class="form-control mt-2"  formControlName="age" placeholder="Age" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">Current Salary:</label>
-                                    <input type="text" class="form-control mt-2" name="salary" required>
+                                    <label style="font-weight: 600;">Department:</label>
+                                    <select class="form-control"  formControlName="department" required>
+                                        <option value="">Select Department</option>
+                                        <option *ngFor="let department of departments" [value]="department.departmentId">{{ department.departmentName }}</option>
+                                      </select>
                                 </div>
-                            </div>
-
-                            <div class="row" style="margin-top: 20px;">
-                                <div class="col-md-6">
-                                    <label style="font-weight: 600;">Expected Salary:</label>
-                                    <input type="text" class="form-control mt-2" name="expectedSalary" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label style="font-weight: 600;">Total Years Experience:</label>
-                                    <input type="text" class="form-control mt-2" name="totalYearsExperience" required>
-                                </div>
-                            </div>
+                            </div> 
 
                             <div class="row " style="margin-top: 20px;">
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">ManagerID:</label>
-                                    <input type="text" class="form-control mt-2" name="mId" required>
+                                    <label style="font-weight: 600;">Designation:</label>
+                                        <select class="form-control"  formControlName="designation" required>
+                                            <option value="">Select Designation</option>
+                                            <option *ngFor="let designation of designations" [value]="designation.designationId">{{ designation.designatioName }}</option>
+                                          </select>
                                 </div>
+                               
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">Manager Name:</label>
-                                    <input type="text" class="form-control mt-2" name="mname" required>
+                                    <label style="font-weight: 600;">ManagerID:</label>
+                                    <input type="text" class="form-control mt-2"  formControlName="managerID" placeholder="Manager ID" required>
                                 </div>
+                               
                             </div>
 
                             <div class="row" style="margin-top: 20px;">
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <label style="font-weight: 600;">Notice Period:</label>
                                     <input type="text" class="form-control mt-2" name="noticePeriod" required>
+                                </div> -->
+                                <!-- <div class="col-md-6">
+                                    <label style="font-weight: 600;">Manager Name:</label>
+                                    <input type="text" class="form-control mt-2"  formControlName="managerName" placeholder="Manager Name" required>
+                                </div> -->
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Roles:</label>
+                                    <select class="form-control"  formControlName="roles" required>
+                                        <option value="">Select Roles</option>
+                                        <option *ngFor="let role of roles" [value]="role.roleId">{{ role.roleName }}</option>
+                                      </select>
                                 </div>
                             </div>
-
-                            <div class="row" style="margin-top: 20px;">
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
                                 <div class="col-md-6">
-                                    <button type="submit" class="btn btn-default">Cancel</button>&nbsp;&nbsp;
+                                    <!-- <button type="submit" class="btn btn-default">Cancel</button>&nbsp;&nbsp; -->
                                     <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
@@ -107,9 +138,490 @@
         </div>
     </div>
 
+    <!-- AddressRow -->
+
+    <div class="row mt-4">
+        <div class="col-md-10 offset-md-1" style="border: 1px solid #ccc;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><b>Employee Address Details</b></h2>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-info" (click)="addAddressRow()">+Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0">
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Date of Birth:</label>
+                                    <input type="date" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Place of Birth:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Blood Group:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Gender:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Maritual Status:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let dynamic of dynamicAddressRow; let i = index;">
+                    <div class="col-md-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2><b>{{ dynamic.title }}</b></h2>
+                            </div>
+                            <div class="col-md-2">
+                                <button (click)="deleteAddressRow(i)" class="btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Date of Birth:</label>
+                                    <input type="date" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Place of Birth:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Blood Group:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Gender:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Maritual Status:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LocationRow -->
+
+    <div class="row mt-4">
+        <div class="col-md-10 offset-md-1" style="border: 1px solid #ccc;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><b>Employee Location Details</b></h2>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-info" (click)="addLocationRow()">+Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0">
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">AddressLine1:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">AddressLine2:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Country:</label>
+                                    <select class="form-control" name="country" [(ngModel)]="selectedCountry" (change)="getStateData()" required>
+                                        <option value="undefined">Select Country</option>
+                                        <option *ngFor="let country of countries" [value]="country.countryid">{{ country.country }}</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">State:</label>
+                                    <select class="form-control" name="state" [(ngModel)]="selectedState" (change)="getDistrictData(selectedState)" required>
+                                        <option value="undefined">Select State</option>
+                                        <option *ngFor="let state of states" [value]="state.stateid">{{ state.state }}</option>
+                                      </select>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">District:</label>
+                                    <select class="form-control" name="district">
+                                        <option value="undefined">Select District</option>
+                                        <option *ngFor="let district of districts" [value]="district.districtid">{{ district.districtname }}</option>
+                                      </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Pincode:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let dynamic of dynamicLocationRow; let i = index;">
+                    <div class="col-md-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2><b>{{ dynamic.title }}</b></h2>
+                            </div>
+                            <div class="col-md-2">
+                                <button (click)="deleteLocationRow(i)" class="btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">AddressLine1:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">AddressLine2:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Country:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">State:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">District:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Pincode:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NationalRow -->
+
+    <div class="row mt-4">
+        <div class="col-md-10 offset-md-1" style="border: 1px solid #ccc;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><b>Employee National Details</b></h2>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-info" (click)="addNationalRow()">+Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0">
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Pan Number:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Aadhar Number:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Voter Number:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport Number:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport Start Date:</label>
+                                    <input type="date" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport Expiry Date:</label>
+                                    <input type="date" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport Issue Office:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let dynamic of dynamicNationalRow; let i = index;">
+                    <div class="col-md-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2><b>{{ dynamic.title }}</b></h2>
+                            </div>
+                            <div class="col-md-2">
+                                <button (click)="deleteNationalRow(i)" class="btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Pan Number:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Aadhar Number:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Voter Number:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport Number:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport Start Date:</label>
+                                    <input type="date" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport Expiry Date:</label>
+                                    <input type="date" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport Issue Office:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EducationalRow -->
+
+    <div class="row mt-4">
+        <div class="col-md-10 offset-md-1" style="border: 1px solid #ccc;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><b>Employee Education Details</b></h2>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-info" (click)="addEducationalRow()">+Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0">
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Institution:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">CourseName:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Specialization</label>
+                                    <input type="text" class="form-control mt-2" name="specialization" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Year of Joining:</label>
+                                    <input type="date" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                               
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Year of PassedOut:</label>
+                                    <input type="date" class="form-control mt-2" name="gender" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Percentage:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Institution Address:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let dynamic of dynamicEducationalRow; let i = index;">
+                    <div class="col-md-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2><b>{{ dynamic.title }}</b></h2>
+                            </div>
+                            <div class="col-md-2">
+                                <button (click)="deleteEducationalRow(i)" class="btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Institution:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Specialization:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Year of Joining:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Year of PassedOut:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Percentage:</label>
+                                    <input type="text" class="form-control mt-2" name="mstatus" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ExperienceRow -->
+
     <div class="row mt-4">
         <div class="col-md-10 offset-md-1">
-            <div class="row" >
+            <div class="row" style="border: 1px solid #ccc;">
                 <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
                     <div class="row">
                         <div class="col-md-6">
@@ -118,6 +630,50 @@
                         <div class="col-md-2">
                             <button class="btn btn-info" (click)="addRow()">+Add</button>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0">
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Company Name:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Designation:</label>
+                                    <input type="text" class="form-control mt-2" name="lname" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Start Date:</label>
+                                    <input type="date" class="form-control mt-2" name="sDate" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">End Date:</label>
+                                    <input type="date" class="form-control mt-2" name="eDate" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Last Drawn CTC:</label>
+                                    <input type="text" class="form-control mt-2" name="ctc" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Payroll Company Name:</label>
+                                    <input type="text" class="form-control mt-2" name="pcName">
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="row" *ngFor="let dynamic of dynamicArray; let i = index;">
@@ -134,50 +690,230 @@
                             <div class="row " style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Company Name:</label>
-                                    <input type="text" class="form-control mt-2" name="fname" [(ngModel)]="dynamic.companyName" required>
+                                    <input type="text" class="form-control mt-2" name="fname"
+                                        [(ngModel)]="dynamic.companyName" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Designation:</label>
-                                    <input type="text" class="form-control mt-2" name="lname" [(ngModel)]="dynamic.designation" required>
+                                    <input type="text" class="form-control mt-2" name="lname"
+                                        [(ngModel)]="dynamic.designation" required>
                                 </div>
                             </div>
 
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Start Date:</label>
-                                    <input type="date" class="form-control mt-2" name="sDate" [(ngModel)]="dynamic.startDate" required>
+                                    <input type="date" class="form-control mt-2" name="sDate"
+                                        [(ngModel)]="dynamic.startDate" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">End Date:</label>
-                                    <input type="date" class="form-control mt-2" name="eDate" [(ngModel)]="dynamic.endDate" required>
+                                    <input type="date" class="form-control mt-2" name="eDate"
+                                        [(ngModel)]="dynamic.endDate" required>
                                 </div>
                             </div>
 
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Last Drawn CTC:</label>
-                                    <input type="text" class="form-control mt-2" name="ctc" [(ngModel)]="dynamic.lastDrawnCTC" required>
+                                    <input type="text" class="form-control mt-2" name="ctc"
+                                        [(ngModel)]="dynamic.lastDrawnCTC" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Payroll Company Name:</label>
-                                    <input type="text" class="form-control mt-2" name="pcName" [(ngModel)]="dynamic.payrollCompanyName">
-                                </div>
-                            </div>
-
-                            <div class="row" style="margin-top: 20px;">
-                                <div class="col-md-6">
-                                    <label style="font-weight: 600;">Roles:</label>
-                                    <select class="form-control mt-2" id="select">
-                                        <option value="1">Roles1</option>
-                                        <option value="2">Roles2</option>
-                                        <option value="3">Roles3</option>
-                                    </select>
+                                    <input type="text" class="form-control mt-2" name="pcName"
+                                        [(ngModel)]="dynamic.payrollCompanyName">
                                 </div>
                             </div>
 
                             <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
                                 <div class="col-md-6">
-                                    <!-- <button (click)="deleteRow(i)" class="btn btn-danger">Delete</button>&nbsp;&nbsp; -->
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TravelRow -->
+
+    <div class="row mt-4">
+        <div class="col-md-10 offset-md-1" style="border: 1px solid #ccc;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><b>Employee Travel Details</b></h2>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-info" (click)="addTravelRow()">+Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0">
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Country:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport No.:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Issue Date:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Expiry Date:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let dynamic of dynamicTravelRow; let i = index;">
+                    <div class="col-md-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2><b>{{ dynamic.title }}</b></h2>
+                            </div>
+                            <div class="col-md-2">
+                                <button (click)="deleteTravelRow(i)" class="btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Country:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport No.:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Issue Date:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Expiry Date:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EmergencyRow -->
+
+    <div class="row mt-4">
+        <div class="col-md-10 offset-md-1" style="border: 1px solid #ccc;">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12" style="background-color: #fff; margin-top: 15px;">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><b>Employee Emergency Details</b></h2>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-info" (click)="addEmergencyRow()">+Add</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-0">
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Emergency Contact No:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Emergency Contact Name:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Primary Contact No:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Secondary Contact No:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row" *ngFor="let dynamic of dynamicEmergencyRow; let i = index;">
+                    <div class="col-md-0">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2><b>{{ dynamic.title }}</b></h2>
+                            </div>
+                            <div class="col-md-2">
+                                <button (click)="deleteEmergencyRow(i)" class="btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row " style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Country:</label>
+                                    <input type="text" class="form-control mt-2" name="fname" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Passport No.:</label>
+                                    <input type="text" class="form-control mt-2" name="placeofBirth" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Issue Date:</label>
+                                    <input type="text" class="form-control mt-2" name="bloodGroup" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label style="font-weight: 600;">Expiry Date:</label>
+                                    <input type="text" class="form-control mt-2" name="gender" required>
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+                                <div class="col-md-6">
                                     <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
