@@ -18,70 +18,89 @@
         </div>
     </div>
 
-    <form>
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-2">
-            <label style="font-weight: 600;">Start Date:</label>
-            <input type="date" class="form-control mt-2" name="dto" id="date_timepicker_start">
+    <form #form="ngForm" (ngSubmit)="submitLeaveDetails(form)" novalidate>
+        <!-- Start Date and End Date -->
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-3">
+                <label style="font-weight: 600;">Start Date:</label>
+                <input type="date" class="form-control mt-2" id="startDate" name="startDate" [(ngModel)]="startDate" required>
+            </div>
+            <div class="col-md-3">
+                <label style="font-weight: 600;">End Date:</label>
+                <input type="date" class="form-control mt-2" id="endDate" name="endDate" [(ngModel)]="endDate" required>
+            </div>
         </div>
-        <div class="col-md-2">
-            <label style="font-weight: 600;">End Date:</label>
-            <input type="date" class="form-control mt-2" name="dto" id="date_timepicker_end">
+    
+        <!-- Duration and Current Balance -->
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-3 mt-2">
+                <label style="font-weight: 600;">Duration:</label><br />
+                <span *ngIf="startDate && endDate">{{ getDuration(startDate, endDate) }}</span>
+            </div>
+            <div class="col-md-3">
+                <label style="font-weight: 600;">Current Balance</label>
+                <p class="mt-2">0.00</p>
+            </div>
         </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-6">
-            <label style="font-weight: 600;">Absence Name:</label>
-            <select class="form-control mt-2" id="select">
-                <option value="1">Loss of Pay(0.00)</option>
-                <option value="2">Loss of Pay(0.00)</option>
-                <option value="3">Loss of Pay(0.00)</option>
-            </select>
+    
+        <!-- Absence Name and Select Half Day -->
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6">
+                <label style="font-weight: 600;">Absence Name:</label>
+                <select class="form-control mt-2" id="select" name="absenceName" [(ngModel)]="absenceName" required>
+                    <ng-container *ngFor="let item of applyLeavesDetails;">
+                        <option [value]="item.leaveValue" *ngFor="let employeeDetail of employeeLeavesDetails">
+                            {{ item.leaveName }} ({{ employeeDetail.unUsedLeavesCount }})
+                        </option>
+                    </ng-container>
+                </select><br />
+                <input type="checkbox" [(ngModel)]="selectHalfDay" name="selectHalfDay" id="selectHalfDay"> Select Half Day
+            </div>
         </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-6">
-            <label style="font-weight: 600;">Absence Reason:</label>
-            <select class="form-control mt-2" id="select">
-                <option value="1">Select</option>
-                <option value="2">Child Adoption Leave for Men(42.00)</option>
-                <option value="3">Loss of Pay(0.00)</option>
-                <option value="4">Compensatory Off(0.00)</option>
-                <option value="5">Sick Leave(18.00)</option>
-                <option value="6">Paternity Leave(5.00)</option>
-                <option value="7">Casual Leave(6.00)</option>
-                <option value="8">Earned Leave(22.50)</option>
-            </select>
+    
+        <!-- Requester Comments -->
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6">
+                <label style="font-weight: 600;">Requester Comments</label>
+                <textarea class="form-control mt-2" id="textAreaExample" rows="4" style="background: #fff;"
+                    placeholder="Type here..." name="requesterComments" [(ngModel)]="requesterComments" required></textarea>
+                <label class="form-label" for="textAreaExample">300 characters remaining</label>
+            </div>
         </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-3">
-            <label style="font-weight: 600;">Duration</label>
-            <p class="mt-2">1</p>
+    
+        <!-- Submit Button -->
+        <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success" [disabled]="!form.valid">Submit</button>
+            </div>
         </div>
-        <div class="col-md-3">
-            <label style="font-weight: 600;">Current Balance</label>
-            <p class="mt-2">0.00</p>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-6">
-            <label style="font-weight: 600;">Requester Comments</label>
-
-            <textarea class="form-control mt-2" id="textAreaExample" rows="4"
-                style="background: #fff;" placeholder="Type here..."></textarea>
-            <label class="form-label" for="textAreaExample">300 characters remaining</label>
-        </div>
-    </div>
-
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-md-6">
-            <button type="submit" class="btn btn-default">Cancel</button>&nbsp;&nbsp;
-            <button type="submit" class="btn btn-success">Submit</button>
-        </div>
-    </div>
     </form>
+    
+
+    <div class="modal" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: #8bc34a;">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color: #fff;">Success!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="color: #000;">Leave details submitted successfully!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="errorModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: #f44336;">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color: #fff;">Error!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p style="color: #000;">Error occurred while submitting leave details: {{ error }}</p>
+                </div>
+            </div>
+        </div>
+    </div>

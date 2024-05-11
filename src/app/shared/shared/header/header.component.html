@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark headerColor" *ngIf="loginService.isLoggedIn()">
   <div class="container-fluid">
     <span style="font-size:30px;cursor:pointer;color: aliceblue;" (click)="openNav()">&#9776;&nbsp;</span>
-    <a class="navbar-brand" href="javascript:void(0)">HRMPROJECT</a>
+    <a class="navbar-brand" routerLink="/home">HRMPROJECT</a>
     <p class="" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar" aria-expanded="false"
       aria-label="Toggle navigation">
     </p>

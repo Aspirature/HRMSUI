@@ -1,8 +1,75 @@
+<section id="topbar" class="d-none d-lg-block">
+    <div class="container-fluid">
+        <div class="row">
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default" routerLink="/profile">
+                        Home
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown">
+                            Profile
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/profile-details">Personal</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="/profile-details">About Me</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details">Contact Details</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details">National ID</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details"> Citizenship</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details"> Dependent Details</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/profile-details">Educational</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="/profile-details">Graduation</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details">External Certification</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details">Internal Certification</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" routerLink="/profile-details">Experience</a></li>
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/profile-details">Travel</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="/profile-details">Passport</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown">
+                           Career
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/profile-details">Career</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="/view-assignment">Assignments</a></li>
+                                    <li><a class="dropdown-item" routerLink="/view-assignment">Learning</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 offset-md-5">
+                    <div class="input-group" >
+                      <input class="form-control mr-sm-2" style="width: 300px;" type="search" placeholder="Search" aria-label="Search">&nbsp;
+                      <div class="input-group-append">
+                      </div>
+                    </div>
+                  </div>
+        </div>
+    </div>
+</section>
+
 
 <div class="container-fluid">
-
-   
-
     <div class="row" style="background-color: #fff; margin-top: 15px;">
         <div class="col-lg-2">
             <button class="form-control btn btn-success rounded-pill">Create your Resume</button>
@@ -12,61 +79,66 @@
         </div>
     </div>
 
-    <div class="row" style="margin-top: 20px;">
-        <div class="col-lg-2 text-center" >
+    <div class="row"
+        style="margin-top: 20px;border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;margin-right: 5px;margin-left: 5px;">
+        <div class="col-lg-2 text-center">
             <h5>
                 <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
             </h5>
-            <button class="form-control btn btn-success rounded-pill" style="width:100px;background-color: blue;color: #fff;">Certify</button>
+            <button class="form-control btn btn-success rounded-pill"
+                style="width:100px;background-color: blue;color: #fff;">Certify</button>
         </div>
         <div class="col-lg-4 mt-3">
             <h5 *ngFor="let item of usersDetails"><b>{{item.username}}</b></h5>
             <p *ngFor="let item of usersDetails">{{item.designation}} | AppDev Account</p>
         </div>
         <div class="col-lg-3 mt-4 text-center">
-            <p  *ngFor="let location of locationDetailsTemp"><i class="fa fa-map-marker" style="font-size:24px"></i>&nbsp;{{location.state}}</p>
-            <p *ngFor="let personal of personalDetails"><i class="fa fa-phone" style="font-size:24px"></i>&nbsp;{{personal.primaryPhNo}}</p>
+            <p *ngFor="let location of locationDetailsTemp"><i class="fa fa-map-marker"
+                    style="font-size:24px"></i>&nbsp;{{location.state}}</p>
+            <p *ngFor="let personal of personalDetails"><i class="fa fa-phone"
+                    style="font-size:24px"></i>&nbsp;{{personal.primaryPhNo}}</p>
         </div>
         <div class="col-lg-3 mt-4">
-            <p *ngFor="let item of usersDetails"><i class='fa fa-id-card' style='font-size:24px'></i>&nbsp;Home Manager: {{item.username}}</p>
-            
+            <p *ngFor="let item of usersDetails"><i class='fa fa-id-card' style='font-size:24px'></i>&nbsp;Home Manager:
+                {{item.username}}</p>
+
         </div>
     </div>
 
-     <div class="row">
+    <div class="row">
         <div class="col-lg-4">
             <div class="card">
                 <h5 class="card-header"><i class="fa fa-user" style="font-size:24px"></i>&nbsp;Personal</h5>
                 <div class="card-body" *ngFor="let personal of personalDetails">
-                        <div class="row">
-                                <div class="col-md-8">
-                                    <label><b>Date of Birth</b></label>
-                                    <p style="font-weight: 500;">{{personal.dateOfBirth}}</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <label><b>Place of Birth</b></label>
-                                    <p style="font-weight: 500;" >{{personal.placeOfBirth}}</p>
-                                </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>Date of Birth</b></label>
+                            <p style="font-weight: 500;">{{personal.dateOfBirth}}</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <label><b>Blood Group</b></label><br />
-                                <p style="font-weight: 500;">{{personal.bloodGroup}}</p>
-                            </div>
-                            <div class="col-md-4" >
-                                <label><b>Gender</b></label><br />
-                                <p style="font-weight: 500;" *ngFor="let item of usersDetails">{{item.gender}}</p>
-                            </div>
+                        <div class="col-md-4">
+                            <label><b>Place of Birth</b></label>
+                            <p style="font-weight: 500;">{{personal.placeOfBirth}}</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label><b>Maritual Status</b></label><br />
-                                <p style="font-weight: 500;" *ngFor="let item of usersDetails">{{item.materialstatus}}</p>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>Blood Group</b></label><br />
+                            <p style="font-weight: 500;">{{personal.bloodGroup}}</p>
                         </div>
+                        <div class="col-md-4">
+                            <label><b>Gender</b></label><br />
+                            <p style="font-weight: 500;" *ngFor="let item of usersDetails">{{item.gender}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Maritual Status</b></label><br />
+                            <p style="font-weight: 500;" *ngFor="let item of usersDetails">{{item.materialstatus}}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-end">
-                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" routerLink="/profile-details">View and Edit Details</a>
                 </div>
             </div>
         </div>
@@ -85,57 +157,57 @@
                 </div>
 
                 <div class="card-body" *ngFor="let location of locationDetailsTemp">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <label><b>AddressLine1</b></label><br />
-                                <p style="font-weight: 500;">{{location.addresslinE1}}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <label><b>AddressLine2</b></label><br />
-                                <p style="font-weight: 500;">{{location.addresslinE2}}</p>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>AddressLine1</b></label><br />
+                            <p style="font-weight: 500;">{{location.addresslinE1}}</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <label><b>State</b></label><br />
-                                <p style="font-weight: 500;">{{location.state}}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <label><b>District</b></label><br />
-                                <p style="font-weight: 500;">{{location.districtname}}</p>
-                            </div>
+                        <div class="col-md-4">
+                            <label><b>AddressLine2</b></label><br />
+                            <p style="font-weight: 500;">{{location.addresslinE2}}</p>
                         </div>
-                        
-                        <div class="row">
-                            <div class="col-md-8">
-                                <label><b>Pincode</b></label><br />
-                                <p style="font-weight: 500;">{{location.pincode}}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <label><b>Country</b></label><br />
-                                <p style="font-weight: 500;">{{location.country}}</p>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>State</b></label><br />
+                            <p style="font-weight: 500;">{{location.state}}</p>
                         </div>
+                        <div class="col-md-4">
+                            <label><b>District</b></label><br />
+                            <p style="font-weight: 500;">{{location.districtname}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>Pincode</b></label><br />
+                            <p style="font-weight: 500;">{{location.pincode}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Country</b></label><br />
+                            <p style="font-weight: 500;">{{location.country}}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-end">
-                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" routerLink="/profile-details">View and Edit Details</a>
                 </div>
             </div>
-        </div> 
-        
+        </div>
+
         <div class="col-lg-4">
             <div class="card">
                 <h5 class="card-header"> <i class="fa fa-id-card-o" style="font-size:24px"></i>&nbsp;National ID</h5>
                 <div class="card-body" *ngFor="let item of nationalIdDetails">
                     <div class="row">
-                            <div class="col-md-6">
-                                <label><b>Pan Number</b></label>
-                                <p style="font-weight: 500;">{{item.pannumber}}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <label><b>Aaddhar Number</b></label>
-                                <p style="font-weight: 500;">{{item.addharnumber}}</p>
-                            </div>
+                        <div class="col-md-6">
+                            <label><b>Pan Number</b></label>
+                            <p style="font-weight: 500;">{{item.pannumber}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label><b>Aaddhar Number</b></label>
+                            <p style="font-weight: 500;">{{item.addharnumber}}</p>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -163,17 +235,17 @@
                             <p style="font-weight: 500;">{{item.passportissueoffice}}</p>
                         </div>
                     </div>
-            </div>
+                </div>
 
                 <div class="card-footer text-muted d-flex justify-content-end">
-                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" routerLink="/profile-details">View and Edit Details</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row" style="margin-top: 20px;">
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header text-muted d-flex justify-content-between">
                     <h5><i class="fa fa-book" style="font-size:24px"></i>&nbsp;Education</h5>
@@ -186,42 +258,43 @@
                     </div>
                 </div>
                 <div class="card-body" *ngFor="let item of educationDetails">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label><b>Institution</b></label><br />
-                                <p style="font-weight: 500;">{{item.coursename}}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <label><b>Specialization</b></label><br />
-                                <p style="font-weight: 500;">{{item.coursename}}</p>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Institution</b></label><br />
+                            <p style="font-weight: 500;">{{item.coursename}}</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label><b>Year of Joining</b></label><br />
-                                <p style="font-weight: 500;">{{item.dateofjoined}}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <label><b>Year of PassedOut</b></label><br />
-                                <p style="font-weight: 500;">{{item.dateofpassedout}}</p>
-                            </div>
+                        <div class="col-md-6">
+                            <label><b>Specialization</b></label><br />
+                            <p style="font-weight: 500;">{{item.coursename}}</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label><b>Percentage</b></label><br />
-                                <p style="font-weight: 500;">{{item.percentage}}</p>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Year of Joining</b></label><br />
+                            <p style="font-weight: 500;">{{item.dateofjoined}}</p>
                         </div>
+                        <div class="col-md-6">
+                            <label><b>Year of PassedOut</b></label><br />
+                            <p style="font-weight: 500;">{{item.dateofpassedout}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Percentage</b></label><br />
+                            <p style="font-weight: 500;">{{item.percentage}}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-end">
-                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" routerLink="/profile-details">View and Edit Details</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-sm-8">
+        <div class="col-md-8">
             <div class="card">
                 <h5 class="card-header"><i class="fa fa-laptop" style="font-size:24px"></i>&nbsp;Experience</h5>
+            
                 <div class="card-body" *ngFor="let item of experienceDetails">
                     <div class="row">
                         <div class="col-md-4">
@@ -253,13 +326,13 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-end">
-                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" routerLink="/profile-details">View and Edit Details</a>
                 </div>
             </div>
         </div>
     </div>
 
-     <div class="row" style="margin-top: 20px;">
+    <div class="row" style="margin-top: 20px;">
         <div class="col-sm-4">
             <div class="card">
                 <div class="card-header text-muted d-flex justify-content-between">
@@ -269,34 +342,36 @@
                     </div>
                 </div>
                 <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <label><b>Country</b></label><br />
-                                <p style="font-weight: 500;" *ngFor="let location of locationDetailsTemp">{{location.country}}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <label><b>Passport No.</b></label><br />
-                                <p style="font-weight: 500;" *ngFor="let nationalDetails of nationalIdDetails">{{nationalDetails.passportnumber}}</p>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label><b>Country</b></label><br />
+                            <p style="font-weight: 500;" *ngFor="let location of locationDetailsTemp">
+                                {{location.country}}</p>
                         </div>
-                        <div class="row" *ngFor="let nationalDetails of nationalIdDetails">
-                            <div class="col-md-8">
-                                <label><b>Issue Date</b></label><br />
-                                <p style="font-weight: 500;">{{nationalDetails.passportstartdate}}</p>
-                            </div>
-                            <div class="col-md-4">
-                                <label><b>Expiry Date</b></label><br />
-                                <p style="font-weight: 500;">{{nationalDetails.passportexpdate}}</p>
-                            </div>
+                        <div class="col-md-4">
+                            <label><b>Passport No.</b></label><br />
+                            <p style="font-weight: 500;" *ngFor="let nationalDetails of nationalIdDetails">
+                                {{nationalDetails.passportnumber}}</p>
                         </div>
+                    </div>
+                    <div class="row" *ngFor="let nationalDetails of nationalIdDetails">
+                        <div class="col-md-8">
+                            <label><b>Issue Date</b></label><br />
+                            <p style="font-weight: 500;">{{nationalDetails.passportstartdate}}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <label><b>Expiry Date</b></label><br />
+                            <p style="font-weight: 500;">{{nationalDetails.passportexpdate}}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-end">
-                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" routerLink="/profile-details">View and Edit Details</a>
                 </div>
             </div>
         </div>
 
-         <div class="col-sm-4">
+        <div class="col-sm-4">
             <div class="card">
                 <div class="card-header text-muted d-flex justify-content-between">
                     <h5><i class="fa fa-user" style="font-size:24px"></i>&nbsp;Family</h5>
@@ -310,33 +385,33 @@
                 </div>
 
                 <div class="card-body" *ngFor="let personal of personalDetails">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label><b>Emergency Contact No</b></label><br />
-                                <p style="font-weight: 500;">{{personal.emergencyPhNo}}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <label><b>Emergency Contact Name</b></label><br />
-                                <p style="font-weight: 500;">{{personal.emergencyContactName}}</p>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Emergency Contact No</b></label><br />
+                            <p style="font-weight: 500;">{{personal.emergencyPhNo}}</p>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label><b>Primary Contact No</b></label><br />
-                                <p style="font-weight: 500;">{{personal.primaryPhNo}}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <label><b>Secondary Contact No</b></label><br />
-                                <p style="font-weight: 500;">{{personal.secondaryPhNo}}</p>
-                            </div>
+                        <div class="col-md-6">
+                            <label><b>Emergency Contact Name</b></label><br />
+                            <p style="font-weight: 500;">{{personal.emergencyContactName}}</p>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label><b>Primary Contact No</b></label><br />
+                            <p style="font-weight: 500;">{{personal.primaryPhNo}}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <label><b>Secondary Contact No</b></label><br />
+                            <p style="font-weight: 500;">{{personal.secondaryPhNo}}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-end">
-                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" routerLink="/profile-details">View and Edit Details</a>
                 </div>
             </div>
-        </div> 
-        
+        </div>
+
         <div class="col-sm-4">
             <div class="card">
                 <h5 class="card-header"> <i class="fa fa-user" style="font-size:24px"></i>&nbsp;People you should know
@@ -351,9 +426,9 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted d-flex justify-content-end">
-                    <a style="color: rgb(65, 129, 129);text-decoration: none;" href="#">View and Edit Details</a>
+                    <a style="color: rgb(65, 129, 129);text-decoration: none;" routerLink="/profile-details">View and Edit Details</a>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </div>

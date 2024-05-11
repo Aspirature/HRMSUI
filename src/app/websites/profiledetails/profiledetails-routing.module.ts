@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfiledetailsComponent } from './profiledetails/profiledetails.component';
 import { CactivateGuard } from 'src/app/guards/cactivate.guard';
-import { EmployeeRegComponent } from './employee-reg/employee-reg.component';
 
 const routes: Routes = [
-  {path:'',component:EmployeeRegComponent, }
+  {path:'',component:ProfiledetailsComponent, }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EmployeeRegRoutingModule { }
+export class ProfiledetailsRoutingModule { }

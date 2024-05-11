@@ -24,14 +24,10 @@ export class ViewassignmentComponent implements OnInit {
     this.viewAssign.getViewwAssignData(empId).subscribe((data:any)=>{
     this.viewAssignDetails=data;
     if(this.currentAssign=data.filter((x:any) => x.isactive == true)){
-      this.currentAssignStatus="Completed"
-    }else{
-      this.currentAssignStatus="InCompleted"
+      this.currentAssignStatus="In Progress"
     }
 
     if(this.historyAssign=data.filter((x:any) => x.isactive == false)){
-      this.historyAssignstatus="Incompleted"
-    }else{
       this.historyAssignstatus="Completed"
     }
     },(error) => {

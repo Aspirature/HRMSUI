@@ -1,43 +1,40 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { viewAssignService } from 'src/app/services/viewAssign.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-profiledetails',
+  templateUrl: './profiledetails.component.html',
+  styleUrls: ['./profiledetails.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfiledetailsComponent implements OnInit {
 
-  usersDetails:any[]=[];
-  travelDetails:any[]=[];
   personalDetails:any[]=[];
   locationDetailsTemp:any[]=[];
+  usersDetails:any[]=[];
+  currentTab: string = 'tab1';
+  currentSubTab1:string = 'tab5';
+  currentSubTab2:string='tab10';
+  currentSubTab4:string = 'tab13';
+  currentSubTab: string = '';
   nationalIdDetails:any[]=[];
   experienceDetails:any[]=[];
-  contactDetails:any;
   educationDetails:any[]=[];
 
-
-  constructor(private profile:UserService) { 
-  }
-
+  constructor(private profile:UserService,private viewAssign:viewAssignService) { }
 
   ngOnInit(): void {
-
-    this.travelData();
     this.personalData();
-    this.locationData();
     this.nationalIdData();
     this.experienceData();
-    this.contactData();
-    this.educationData();
+    this.locationData();
     this.userData();
-  
+    this.educationData();
   }
 
-   // userData
+  // userData
 
-   userData(){
+  userData(){
     let empId = 1;
     this.profile.getEmployeeDetailsData(empId).subscribe((data:any)=>{
       this.usersDetails = data;
@@ -45,6 +42,14 @@ export class ProfileComponent implements OnInit {
       console.error('Error fetching users details:', error);
     });
   }
+
+  changeTab(tabName: string) {
+    this.currentTab = tabName;
+  }
+
+  changeSubTab(subTab: string): void {
+    this.currentSubTab = subTab;
+}
 
   // personalDetails
 
@@ -90,16 +95,6 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  // contactData
-
-  contactData(){
-    // this.profile.getUserData().subscribe((data:any)=>{
-    //   this.contactDetails=data['contactDetails'][0];
-    // },(error) => {
-    //   console.error('Error fetching contact details:', error);
-    // });
-  }
-
   // educationData
 
   educationData(){
@@ -108,18 +103,6 @@ export class ProfileComponent implements OnInit {
       this.educationDetails = data;
     },(error) => {
       console.error('Error fetching education details:', error);
-    });
-  }
-
-
-  // TravelData
-
-  travelData(){
-    let empID = 1;
-     this.profile.getTravelData(empID).subscribe((data:any)=>{
-      this.travelDetails=data;
-    },(error) => {
-      console.error('Error fetching travel details:', error);
     });
   }
 

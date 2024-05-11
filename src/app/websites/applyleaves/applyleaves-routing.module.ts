@@ -4,7 +4,7 @@ import { ApplyleavesComponent } from './applyleaves/applyleaves.component';
 import { CactivateGuard } from 'src/app/guards/cactivate.guard';
 
 const routes: Routes = [
-  {path:'',component:ApplyleavesComponent, canActivate:[CactivateGuard]}
+  {path:'',component:ApplyleavesComponent, }
 ];
 
 @NgModule({

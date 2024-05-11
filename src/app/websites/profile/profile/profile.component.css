@@ -1,0 +1,38 @@
+#topbar {
+    background-color: #fff;
+    padding: 15px 0;
+    font-size: 14px;
+    height: 60px;
+    border: 1px solid #ccc;
+}
+
+.dropdown .dropdown-menu{
+  display: none;
+}
+
+.dropdown:hover > .dropdown-menu, .dropend:hover > .dropdown-menu {
+  display: block;
+  margin-top: .125em;
+}
+
+.dropend:hover > .dropdown-menu {
+  position: absolute;
+  top: 0;
+  left:100%;
+  margin-left: .100em;
+}
+
+/* CSS for progress overlay */
+.progress-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 20px; /* Adjust height as needed */
+  background-color: #007bff; /* Progress bar color */
+  transition: width 0.5s ease; /* Smooth transition for width change */
+  z-index: 1; /* Ensure it's above the chart */
+}
+
+
+
+

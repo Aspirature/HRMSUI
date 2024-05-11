@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
 
+  // private readonly AUTH_FLAG_KEY = 'isLoggedIn';
+
   private isAuthenticated: boolean = false;
 
   constructor(private router:Router,private http:HttpClient) { }
@@ -24,6 +26,7 @@ export class LoginService {
 
   login(userName: string, password: string): boolean {
     if(this.http.get(this.loginUrl + userName + '&password=' + password )){
+      // localStorage.setItem(this.AUTH_FLAG_KEY, 'true');
       this.isAuthenticated = true;
       return true;
     }

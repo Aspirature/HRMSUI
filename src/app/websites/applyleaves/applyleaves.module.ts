@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ApplyleavesRoutingModule } from './applyleaves-routing.module';
 import { ApplyleavesComponent } from './applyleaves/applyleaves.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ApplyleavesComponent } from './applyleaves/applyleaves.component';
   ],
   imports: [
     CommonModule,
-    ApplyleavesRoutingModule
+    ApplyleavesRoutingModule,
+    FormsModule
   ]
 })
 export class ApplyleavesModule { }

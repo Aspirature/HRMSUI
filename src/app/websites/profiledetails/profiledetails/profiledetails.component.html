@@ -1,0 +1,400 @@
+<section id="topbar" class="d-none d-lg-block">
+    <div class="container-fluid">
+        <div class="row">
+                <div class="col-md-1">
+                    <button type="button" class="btn btn-default" routerLink="/profile">
+                        Home
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown">
+                            Profile
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/profile-details">Personal</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="/profile-details">About Me</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details">Contact Details</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details">National ID</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details"> Citizenship</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details"> Dependent Details</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/profile-details">Educational</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="/profile-details">Graduation</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details">External Certification</a></li>
+                                    <li><a class="dropdown-item" routerLink="/profile-details">Internal Certification</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" routerLink="/profile-details">Experience</a></li>
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/profile-details">Travel</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="/profile-details">Passport</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-bs-toggle="dropdown">
+                           Career
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu dropend">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/profile-details">Career</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" routerLink="/view-assignment">Assignments</a></li>
+                                    <li><a class="dropdown-item" routerLink="/view-assignment">Learning</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 offset-md-5">
+                    <div class="input-group" >
+                      <input class="form-control mr-sm-2" style="width: 300px;" type="search" placeholder="Search" aria-label="Search">&nbsp;
+                      <div class="input-group-append">
+                      </div>
+                    </div>
+                  </div>
+        </div>
+    </div>
+</section>
+
+<div class="container-fluid">
+    <div class="row" style="background-color: #fff; margin-top: 15px;">
+        <div class="col-lg-2">
+            <button class="form-control btn btn-success rounded-pill">Create your Resume</button>
+        </div>
+        <div class="col-lg-2 offset-lg-8 ">
+            <button class="form-control btn btn-success rounded-pill">View Resume/Log</button>
+        </div>
+    </div>
+
+<div class="container-fluid">
+    <div class="row" style="margin-top: 20px;border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;margin-right: 5px;margin-left: 5px;">
+        <div class="col-lg-2 text-center" >
+            <h5>
+                <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+            </h5>
+            <button class="form-control btn btn-success rounded-pill" style="width:100px;background-color: blue;color: #fff;">Certify</button>
+        </div>
+        <div class="col-lg-4 mt-3">
+            <h5 *ngFor="let item of usersDetails"><b>{{item.username}}</b></h5>
+            <p *ngFor="let item of usersDetails">{{item.designation}} | AppDev Account</p>
+        </div>
+        <div class="col-lg-3 mt-4 text-center">
+            <p  *ngFor="let location of locationDetailsTemp"><i class="fa fa-map-marker" style="font-size:24px"></i>&nbsp;{{location.state}}</p>
+            <p *ngFor="let personal of personalDetails"><i class="fa fa-phone" style="font-size:24px"></i>&nbsp;{{personal.primaryPhNo}}</p>
+        </div>
+        <div class="col-lg-3 mt-4">
+            <p *ngFor="let item of usersDetails"><i class='fa fa-id-card' style='font-size:24px'></i>&nbsp;Home Manager: {{item.username}}</p>
+            
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-10">
+            <div class="tabs">
+                <button (click)="changeTab('tab1')" [class.active]="currentTab === 'tab1'"><i class="fa fa-user" style="font-size:24px"></i>&nbsp;Personal</button>
+                <button (click)="changeTab('tab2')" [class.active]="currentTab === 'tab2'"><i class="fa fa-book" style="font-size:24px"></i>&nbsp;Educational</button>
+                <button (click)="changeTab('tab3')" [class.active]="currentTab === 'tab3'"><i class="fa fa-laptop" style="font-size:24px"></i>&nbsp;Experience</button>
+                <button (click)="changeTab('tab4')" [class.active]="currentTab === 'tab4'"><i class="fa fa-plane" style="font-size:24px"></i>&nbsp;Travel</button>
+            </div>
+            <hr />
+    
+            <div *ngIf="currentTab === 'tab1'" class="tab-content">
+                <div class="tabs">
+                    <button (click)="changeSubTab('tab5')" [class.active]="currentSubTab1 === 'tab5'">&nbsp;About Me</button>
+                    <button (click)="changeSubTab('tab6')" [class.active]="currentSubTab === 'tab6'">&nbsp;Contact Details</button>
+                    <button (click)="changeSubTab('tab7')" [class.active]="currentSubTab === 'tab7'">&nbsp;National ID</button>
+                    <button (click)="changeSubTab('tab8')" [class.active]="currentSubTab === 'tab8'">&nbsp;Citizenship</button>
+                    <button (click)="changeSubTab('tab9')" [class.active]="currentSubTab === 'tab9'">&nbsp;Dependent Details</button>
+                </div><hr/><br/>
+                <div *ngIf="currentSubTab1 === 'tab5'" class="sub-tab-content" style="margin-left:20px">
+                    <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label><b>UserName</b></label>
+                                <p *ngFor="let item of usersDetails">{{item.username}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Designation</b></label>
+                                <p *ngFor="let item of usersDetails">{{item.designation}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <label><b>Contact No.</b></label>
+                                <p *ngFor="let personal of personalDetails">{{personal.primaryPhNo}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <label><b>Description</b></label>
+                                <p>1. As a Software Engineer having 3+ Years of Experience in IT Services in the area of Web(Frontend) Technologies<br/>
+                                2.Having Good Experience in Developing Web based Application using Angular & React JS.<br/>
+                                3. Having Good Experience in Developing Frontend Application using HTML5, CSS3, JavaScript, Bootstrap, Typescript and Angular-11
+                                </p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div *ngIf="currentSubTab === 'tab6'" class="sub-tab-content" style="margin-left:20px">
+                    <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;" *ngFor="let personal of personalDetails">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label><b>UserName</b></label>
+                                <p *ngFor="let item of usersDetails">{{item.username}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <label><b>Designation</b></label>
+                                <p *ngFor="let item of usersDetails">{{item.designation}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <label><b>Contact No.</b></label>
+                                <p *ngFor="let personal of personalDetails">{{personal.primaryPhNo}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <label><b>Date of Birth</b></label>
+                                <p style="font-weight: 500;">{{personal.dateOfBirth}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-3">
+                                    <label><b>Place of Birth</b></label>
+                                    <p style="font-weight: 500;" >{{personal.placeOfBirth}}</p>
+                                </div>
+                            <div class="col-md-3">
+                                <label><b>Blood Group</b></label><br />
+                                <p style="font-weight: 500;">{{personal.bloodGroup}}</p>
+                            </div>
+                            <div class="col-md-3" >
+                                <label><b>Gender</b></label><br />
+                                <p style="font-weight: 500;" *ngFor="let item of usersDetails">{{item.gender}}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <label><b>Maritual Status</b></label><br />
+                                <p style="font-weight: 500;" *ngFor="let item of usersDetails">{{item.materialstatus}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="currentSubTab === 'tab7'" class="sub-tab-content">
+                    <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
+                        <div *ngFor="let item of nationalIdDetails">
+                            <div class="row">
+                                    <div class="col-md-3">
+                                        <label><b>Pan Number</b></label>
+                                        <p style="font-weight: 500;">{{item.pannumber}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label><b>Aaddhar Number</b></label>
+                                        <p style="font-weight: 500;">{{item.addharnumber}}</p>
+                                    </div>
+                                <div class="col-md-3">
+                                    <label><b>Voter Number</b></label><br />
+                                    <p style="font-weight: 500;">{{item.voternumber}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Passport Number</b></label><br />
+                                    <p style="font-weight: 500;">{{item.passportnumber}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label><b>Passport Start Date</b></label><br />
+                                    <p style="font-weight: 500;">{{item.passportstartdate}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Passport Expiry Date</b></label><br />
+                                    <p style="font-weight: 500;">{{item.passportexpdate}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Passport Issue Office</b></label><br />
+                                    <p style="font-weight: 500;">{{item.passportissueoffice}}</p>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                <div *ngIf="currentSubTab === 'tab8'" class="sub-tab-content">
+                    <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
+                        <div *ngFor="let location of locationDetailsTemp">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label><b>AddressLine1</b></label><br />
+                                    <p style="font-weight: 500;">{{location.addresslinE1}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>AddressLine2</b></label><br />
+                                    <p style="font-weight: 500;">{{location.addresslinE2}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>State</b></label><br />
+                                    <p style="font-weight: 500;">{{location.state}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>District</b></label><br />
+                                    <p style="font-weight: 500;">{{location.districtname}}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label><b>Pincode</b></label><br />
+                                    <p style="font-weight: 500;">{{location.pincode}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Country</b></label><br />
+                                    <p style="font-weight: 500;">{{location.country}}</p>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+                <div *ngIf="currentSubTab === 'tab9'" class="sub-tab-content">
+                    <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
+                        <div class="card-body" *ngFor="let personal of personalDetails">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label><b>Emergency Contact No</b></label><br />
+                                    <p style="font-weight: 500;">{{personal.emergencyPhNo}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Emergency Contact Name</b></label><br />
+                                    <p style="font-weight: 500;">{{personal.emergencyContactName}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Primary Contact No</b></label><br />
+                                    <p style="font-weight: 500;">{{personal.primaryPhNo}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Secondary Contact No</b></label><br />
+                                    <p style="font-weight: 500;">{{personal.secondaryPhNo}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div *ngIf="currentTab === 'tab2'" class="tab-content">
+                <div class="tabs">
+                    <button (click)="changeSubTab('tab10')" [class.active]="currentSubTab2 === 'tab10'">&nbsp;Graduation</button>
+                    <button (click)="changeSubTab('tab11')" [class.active]="currentSubTab === 'tab11'">&nbsp;External Certification</button>
+                    <button (click)="changeSubTab('tab12')" [class.active]="currentSubTab === 'tab12'">&nbsp;Internal Certification</button>
+                </div>
+                <div *ngIf="currentSubTab2 === 'tab10'" class="sub-tab-content">
+                    <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
+                        <div *ngFor="let item of educationDetails">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label><b>Institution</b></label><br />
+                                    <p style="font-weight: 500;">{{item.coursename}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Specialization</b></label><br />
+                                    <p style="font-weight: 500;">{{item.coursename}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Year of Joining</b></label><br />
+                                    <p style="font-weight: 500;">{{item.dateofjoined}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Year of PassedOut</b></label><br />
+                                    <p style="font-weight: 500;">{{item.dateofpassedout}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label><b>Percentage</b></label><br />
+                                    <p style="font-weight: 500;">{{item.percentage}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div *ngIf="currentSubTab === 'tab11'" class="sub-tab-content">
+                    <p>Content for SubTab Tab11</p>
+                </div>
+                <div *ngIf="currentSubTab === 'tab12'" class="sub-tab-content">
+                    <p>Content for SubTab Tab12</p>
+                </div>
+            </div>
+
+            <div *ngIf="currentTab === 'tab3'" class="tab-content">
+                <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
+                    <div *ngFor="let item of experienceDetails">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label><b>Company Name</b></label>
+                                <p style="font-weight: 500;">{{item.companyname}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Designation</b></label>
+                                <p style="font-weight: 500;">{{item.designation}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Start Date</b></label>
+                                <p style="font-weight: 500;">{{item.startdate}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label><b>End Date</b></label>
+                                <p style="font-weight: 500;">{{item.enddate}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Total of Experience</b></label>
+                                <p style="font-weight: 500;">{{item.totalyearsexp}}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <label><b>Last Drawn CTC</b></label>
+                                <p style="font-weight: 500;">{{item.totalyearsexp}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="currentTab === 'tab4'" class="tab-content">
+                <div class="tabs">
+                    <button (click)="changeSubTab('tab13')" [class.active]="currentSubTab4 === 'tab13'">&nbsp;Passport</button>
+                </div>
+                <div *ngIf="currentSubTab4 === 'tab13'" class="sub-tab-content">
+                    <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label><b>Country</b></label><br />
+                                    <p style="font-weight: 500;" *ngFor="let location of locationDetailsTemp">{{location.country}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Passport No.</b></label><br />
+                                    <p style="font-weight: 500;" *ngFor="let nationalDetails of nationalIdDetails">{{nationalDetails.passportnumber}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Issue Date</b></label><br />
+                                    <p style="font-weight: 500;" *ngFor="let nationalDetails of nationalIdDetails">{{nationalDetails.passportstartdate}}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <label><b>Expiry Date</b></label><br />
+                                    <p style="font-weight: 500;" *ngFor="let nationalDetails of nationalIdDetails">{{nationalDetails.passportexpdate}}</p>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    
+</div>

@@ -46,6 +46,18 @@ export const MainRoutes = [
     {
         path:'employee-register',
         loadChildren:() => import('../websites/employee-reg/employee-reg.module').then(m=>m.EmployeeRegModule)
+    },
+    {
+        path:'profile-details',
+        loadChildren:() => import('../websites/profiledetails/profiledetails.module').then(m=>m.ProfiledetailsModule)
+    },
+    {
+        path:'careers',
+        loadChildren:() => import('../websites/careers/careers.module').then(m=>m.CareersModule)
+    },
+    {
+        path:'manager-leaves',
+        loadChildren:() => import('../websites/managerleaves/managerleaves.module').then(m=>m.ManagerleavesModule)
     }
 
 ]

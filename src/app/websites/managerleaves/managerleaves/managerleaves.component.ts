@@ -1,17 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { viewAssignService } from 'src/app/services/viewAssign.service';
-import { LeaveDetails } from './leave-details.model';
-import { NgForm } from '@angular/forms';
-declare var bootstrap: any;
 
 @Component({
-  selector: 'app-applyleaves',
-  templateUrl: './applyleaves.component.html',
-  styleUrls: ['./applyleaves.component.css']
+  selector: 'app-managerleaves',
+  templateUrl: './managerleaves.component.html',
+  styleUrls: ['./managerleaves.component.css']
 })
-
-
-export class ApplyleavesComponent implements OnInit {
+export class ManagerleavesComponent implements OnInit {
 
   applyLeavesDetails:any[]=[];
   employeeLeavesDetails:any[]=[];
@@ -62,55 +57,10 @@ export class ApplyleavesComponent implements OnInit {
   employeeLeavesData(){
     let empId=1;
     this.applyLeaves.getEmployeeLeavesMasterData(empId).subscribe((data:any)=>{
-      console.log(data,'dataa');
-      
       this.employeeLeavesDetails = data;
     },(error) => {
       console.error('Error fetching users details:', error);
     });
-  }
-  
-  showSuccessModal() {
-    var myModal = new bootstrap.Modal(document.getElementById('successModal'));
-    myModal.show();
-  }
-
-  submitLeaveDetails(form: NgForm) {
-
-    if (form.invalid) {
-      Object.values(form.controls).forEach(control => {
-        control.markAsTouched();
-      });
-      return;
-    }
-
-    const leaveDetails: LeaveDetails = {
-      employeeLeaveDetailsId: 0,
-      startDate: this.startDate || '',
-      endDate: this.endDate || '',
-      noOfDays: 1,
-      employeeComments: this.requesterComments || '',
-      halfDay: false,
-      fullDay: true,
-      isManagerApproves: true,
-      managerComments: '',
-      isActive: true,
-      employeeid: 1,
-      leaveTypeId: 1
-    };
-
-    // let empId=1;
-  
-    this.applyLeaves.postApplyLeavesData(leaveDetails).subscribe
-      (
-        response => {
-          console.log('Leave details submitted successfully!', response);
-          this.showSuccessModal();
-        },
-        error => {
-          this.error = 'Error occurred while submitting leave details: ' + error.message;
-        }
-      );
   }
   
 }
