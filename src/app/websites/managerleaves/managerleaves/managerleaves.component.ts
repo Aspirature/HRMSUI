@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { LeaveDetails } from './../../applyleaves/applyleaves/leave-details.model';
+import { NgForm } from '@angular/forms';
 import { viewAssignService } from 'src/app/services/viewAssign.service';
+import { ActivatedRoute } from '@angular/router';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-managerleaves',
@@ -10,57 +15,40 @@ export class ManagerleavesComponent implements OnInit {
 
   applyLeavesDetails:any[]=[];
   employeeLeavesDetails:any[]=[];
+  editEmpLeave:any;
+  error: string | null = null;
+  empIdLatest: string = "";
 
-  // startDate: string | null = null;
-  // endDate: string | null = null;
-   error: string | null = null;
-  // absenceName: string | null = null;
-  // requesterComments: string | null = null;
+  // editedStartDate: string = '';
+  // editedEndDate: string = '';
+  // editedDuration: string = '';
+  // editedAbsenceName: string = '';
+  // editedEmployeeComments: string = '';
+  // editedHalf: string = '';
+  // editedManagerName: string = '';
+  // editedManagerApproval: string = '';
+  
 
-  startDate: string = '';
-  endDate: string = '';
-  absenceName: string = '';
-  selectHalfDay: boolean = false;
-  requesterComments: string = '';
-
-  constructor(private applyLeaves:viewAssignService) { }
+  constructor(private employeeLeaves:UserService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.applyLeavesData();
-    this.employeeLeavesData();
+     this.empIdLatest=JSON.parse(localStorage.getItem('employeeId') || '{}');
+     const empDetailsId:any = this.route.snapshot.paramMap.get('id');
+     this.editEmployeeLeaveDetails(empDetailsId);
+     this.getEmployeeLeaveDetails();
   }
 
-  getDuration(startDate: string, endDate: string): string {
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    const durationInMilliseconds = Math.abs(end.getTime() - start.getTime());
-
-    const days = Math.floor(durationInMilliseconds / (1000 * 60 * 60 * 24));
-    const months = Math.floor(days / 30);
-    const years = Math.floor(months / 12);
-
-    return `${days % 30} days`;
-  }
-
-  // applyLeavesData
-
-  applyLeavesData(){
-    this.applyLeaves.getApplyLeavesData().subscribe((data:any)=>{
-      this.applyLeavesDetails = data;
-    },(error) => {
-      console.error('Error fetching users details:', error);
-    });
-  }
-
-  // EmployeeLeavesData
-
-  employeeLeavesData(){
-    let empId=1;
-    this.applyLeaves.getEmployeeLeavesMasterData(empId).subscribe((data:any)=>{
+  getEmployeeLeaveDetails(){
+    this.employeeLeaves.getEmployeeLeaveData(Number(this.empIdLatest)).subscribe((data: any) => {
       this.employeeLeavesDetails = data;
-    },(error) => {
-      console.error('Error fetching users details:', error);
+    }, (error) => {
+      console.error('Error fetching EmployeeLeave details:', error);
     });
   }
-  
+
+  editEmployeeLeaveDetails(id: any) {
+    this.employeeLeaves.getEmployeeLeaveDataById(id).subscribe(data => {
+      this.editEmpLeave = data;
+    });
+  }
 }

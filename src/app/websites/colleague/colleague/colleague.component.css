@@ -1,0 +1,20 @@
+.latest h3 {
+    color: #fff;
+    padding: 15px 55px 10px 15px;
+    font-size: 16px;
+    text-transform: capitalize;
+    /* float: left; */
+    width: auto;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+  th {
+    background-color: #b7c3ee;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }

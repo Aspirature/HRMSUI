@@ -16,35 +16,44 @@ export class ApplyleavesComponent implements OnInit {
   applyLeavesDetails:any[]=[];
   employeeLeavesDetails:any[]=[];
 
-  // startDate: string | null = null;
-  // endDate: string | null = null;
    error: string | null = null;
-  // absenceName: string | null = null;
-  // requesterComments: string | null = null;
 
   startDate: string = '';
   endDate: string = '';
   absenceName: string = '';
+  noOfDays:number | undefined;
   selectHalfDay: boolean = false;
   requesterComments: string = '';
-
+  managerComments:string ='';
+  isManagerApproves:boolean=false;
+  isActive:boolean=false;
+  leaveTypeId: any;
+  empIdLatest: string = "";
+  days:any
+  
   constructor(private applyLeaves:viewAssignService) { }
 
   ngOnInit(): void {
+    this.empIdLatest=JSON.parse(localStorage.getItem('employeeId') || '{}');
     this.applyLeavesData();
     this.employeeLeavesData();
   }
 
+  changeLeaveType(data: any) {
+    this.leaveTypeId = data;
+  }
+
+  
   getDuration(startDate: string, endDate: string): string {
     const start = new Date(startDate);
     const end = new Date(endDate);
     const durationInMilliseconds = Math.abs(end.getTime() - start.getTime());
 
-    const days = Math.floor(durationInMilliseconds / (1000 * 60 * 60 * 24));
-    const months = Math.floor(days / 30);
+    this.days = Math.floor(durationInMilliseconds / (1000 * 60 * 60 * 24));
+    const months = Math.floor(this.days / 30);
     const years = Math.floor(months / 12);
 
-    return `${days % 30} days`;
+    return `${this.days % 30} days`;
   }
 
   // applyLeavesData
@@ -60,10 +69,7 @@ export class ApplyleavesComponent implements OnInit {
   // EmployeeLeavesData
 
   employeeLeavesData(){
-    let empId=1;
-    this.applyLeaves.getEmployeeLeavesMasterData(empId).subscribe((data:any)=>{
-      console.log(data,'dataa');
-      
+    this.applyLeaves.getEmployeeLeavesMasterData(Number(this.empIdLatest)).subscribe((data:any)=>{
       this.employeeLeavesDetails = data;
     },(error) => {
       console.error('Error fetching users details:', error);
@@ -88,18 +94,17 @@ export class ApplyleavesComponent implements OnInit {
       employeeLeaveDetailsId: 0,
       startDate: this.startDate || '',
       endDate: this.endDate || '',
-      noOfDays: 1,
+      noOfDays: Number(this.days),
       employeeComments: this.requesterComments || '',
-      halfDay: false,
-      fullDay: true,
-      isManagerApproves: true,
-      managerComments: '',
-      isActive: true,
-      employeeid: 1,
-      leaveTypeId: 1
+      halfDay: this.selectHalfDay,
+      fullDay: this.selectHalfDay,
+      isManagerApproves: this.isManagerApproves,
+      managerComments: this.managerComments,
+      isActive: this.isActive,
+      employeeid: Number(this.empIdLatest),
+      leaveTypeId: Number(this.leaveTypeId),
     };
 
-    // let empId=1;
   
     this.applyLeaves.postApplyLeavesData(leaveDetails).subscribe
       (

@@ -47,14 +47,15 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-md-6">
                 <label style="font-weight: 600;">Absence Name:</label>
-                <select class="form-control mt-2" id="select" name="absenceName" [(ngModel)]="absenceName" required>
+                <select class="form-control mt-2" id="select" name="absenceName" [(ngModel)]="absenceName"  #mySelect3 (change)="changeLeaveType(mySelect3.value)" required>
                     <ng-container *ngFor="let item of applyLeavesDetails;">
-                        <option [value]="item.leaveValue" *ngFor="let employeeDetail of employeeLeavesDetails">
+                        <option [value]="item.leaveTypeId" *ngFor="let employeeDetail of employeeLeavesDetails">
                             {{ item.leaveName }} ({{ employeeDetail.unUsedLeavesCount }})
                         </option>
                     </ng-container>
                 </select><br />
-                <input type="checkbox" [(ngModel)]="selectHalfDay" name="selectHalfDay" id="selectHalfDay"> Select Half Day
+                <input type="checkbox" [(ngModel)]="selectHalfDay" name="selectHalfDay" id="selectHalfDay">
+                <label for="selectHalfDay">Select Half Day</label>
             </div>
         </div>
     

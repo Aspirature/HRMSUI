@@ -113,10 +113,10 @@
             <div *ngIf="currentTab === 'tab1'" class="tab-content">
                 <div class="tabs">
                     <button (click)="changeSubTab('tab5')" [class.active]="currentSubTab1 === 'tab5'">&nbsp;About Me</button>
-                    <button (click)="changeSubTab('tab6')" [class.active]="currentSubTab === 'tab6'">&nbsp;Contact Details</button>
-                    <button (click)="changeSubTab('tab7')" [class.active]="currentSubTab === 'tab7'">&nbsp;National ID</button>
-                    <button (click)="changeSubTab('tab8')" [class.active]="currentSubTab === 'tab8'">&nbsp;Citizenship</button>
-                    <button (click)="changeSubTab('tab9')" [class.active]="currentSubTab === 'tab9'">&nbsp;Dependent Details</button>
+                    <button (click)="changeSubTab('tab6')" [class.active]="currentSubTab1 === 'tab6'">&nbsp;Contact Details</button>
+                    <button (click)="changeSubTab('tab7')" [class.active]="currentSubTab1 === 'tab7'">&nbsp;National ID</button>
+                    <button (click)="changeSubTab('tab8')" [class.active]="currentSubTab1 === 'tab8'">&nbsp;Citizenship</button>
+                    <button (click)="changeSubTab('tab9')" [class.active]="currentSubTab1 === 'tab9'">&nbsp;Dependent Details</button>
                 </div><hr/><br/>
                 <div *ngIf="currentSubTab1 === 'tab5'" class="sub-tab-content" style="margin-left:20px">
                     <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
@@ -146,7 +146,7 @@
                         
                     </div>
                 </div>
-                <div *ngIf="currentSubTab === 'tab6'" class="sub-tab-content" style="margin-left:20px">
+                <div *ngIf="currentSubTab1 === 'tab6'" class="sub-tab-content" style="margin-left:20px">
                     <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;" *ngFor="let personal of personalDetails">
                         <div class="row">
                             <div class="col-md-3">
@@ -186,7 +186,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="currentSubTab === 'tab7'" class="sub-tab-content">
+                <div *ngIf="currentSubTab1 === 'tab7'" class="sub-tab-content">
                     <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
                         <div *ngFor="let item of nationalIdDetails">
                             <div class="row">
@@ -224,7 +224,7 @@
                     </div>
                     </div>
                 </div>
-                <div *ngIf="currentSubTab === 'tab8'" class="sub-tab-content">
+                <div *ngIf="currentSubTab1 === 'tab8'" class="sub-tab-content">
                     <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
                         <div *ngFor="let location of locationDetailsTemp">
                             <div class="row">
@@ -259,7 +259,7 @@
                     </div>
                     </div>
                 </div>
-                <div *ngIf="currentSubTab === 'tab9'" class="sub-tab-content">
+                <div *ngIf="currentSubTab1 === 'tab9'" class="sub-tab-content">
                     <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
                         <div class="card-body" *ngFor="let personal of personalDetails">
                             <div class="row">
@@ -287,9 +287,9 @@
     
             <div *ngIf="currentTab === 'tab2'" class="tab-content">
                 <div class="tabs">
-                    <button (click)="changeSubTab('tab10')" [class.active]="currentSubTab2 === 'tab10'">&nbsp;Graduation</button>
-                    <button (click)="changeSubTab('tab11')" [class.active]="currentSubTab === 'tab11'">&nbsp;External Certification</button>
-                    <button (click)="changeSubTab('tab12')" [class.active]="currentSubTab === 'tab12'">&nbsp;Internal Certification</button>
+                    <button (click)="changeSubTab1('tab10')" [class.active]="currentSubTab2 === 'tab10'">&nbsp;Graduation</button>
+                    <button (click)="changeSubTab1('tab11')" [class.active]="currentSubTab2 === 'tab11'">&nbsp;External Certification</button>
+                    <button (click)="changeSubTab1('tab12')" [class.active]="currentSubTab2 === 'tab12'">&nbsp;Internal Certification</button>
                 </div>
                 <div *ngIf="currentSubTab2 === 'tab10'" class="sub-tab-content">
                     <div style="border: 1px solid #ccc;padding: 20px;margin-bottom: 20px;">
@@ -322,10 +322,10 @@
                     </div>
                    
                 </div>
-                <div *ngIf="currentSubTab === 'tab11'" class="sub-tab-content">
+                <div *ngIf="currentSubTab2 === 'tab11'" class="sub-tab-content">
                     <p>Content for SubTab Tab11</p>
                 </div>
-                <div *ngIf="currentSubTab === 'tab12'" class="sub-tab-content">
+                <div *ngIf="currentSubTab2 === 'tab12'" class="sub-tab-content">
                     <p>Content for SubTab Tab12</p>
                 </div>
             </div>

@@ -14,12 +14,12 @@ export class LocationsService {
     return this.http.get<any[]>('https://localhost:7003/api/Master/getCountryListAsync');
   }
 
-  getStates(country: any): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7003/api/Master/getStateListByCountryIdAsync?countryId=' + country);
+  getStates(countryId: any): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:7003/api/Master/getStateListByCountryIdAsync?countryId=' + countryId);
   }
 
-  getDistricts(state: any): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7003/api/Master/getDistrictListByStateIdAsync?stateId=' + state);
+  getDistricts(stateId: any): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:7003/api/Master/getDistrictListByStateIdAsync?stateId=' + stateId);
   }
 
   getRoles(): Observable<any[]> {

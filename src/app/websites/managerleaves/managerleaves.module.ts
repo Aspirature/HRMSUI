@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ManagerleavesRoutingModule } from './managerleaves-routing.module';
 import { ManagerleavesComponent } from './managerleaves/managerleaves.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { ManagerleavesComponent } from './managerleaves/managerleaves.component'
   ],
   imports: [
     CommonModule,
-    ManagerleavesRoutingModule
+    ManagerleavesRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ManagerleavesModule { }

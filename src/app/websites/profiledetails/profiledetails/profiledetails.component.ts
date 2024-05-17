@@ -21,40 +21,54 @@ export class ProfiledetailsComponent implements OnInit {
   experienceDetails:any[]=[];
   educationDetails:any[]=[];
 
-  constructor(private profile:UserService,private viewAssign:viewAssignService) { }
+  empIdLatest: string = "";
+
+  constructor(private profile:UserService) { }
 
   ngOnInit(): void {
-    this.personalData();
-    this.nationalIdData();
-    this.experienceData();
-    this.locationData();
     this.userData();
-    this.educationData();
   }
 
   // userData
 
   userData(){
-    let empId = 1;
-    this.profile.getEmployeeDetailsData(empId).subscribe((data:any)=>{
-      this.usersDetails = data;
-    },(error) => {
-      console.error('Error fetching users details:', error);
-    });
+    const userName = localStorage.getItem('loginSessId');
+    if (userName) {
+      this.profile.getEmployeeDetailsData(userName).subscribe((data: any) => {
+        const empId: any = data[0].employeeid;
+        this.personalData(empId);
+        this.nationalIdData(empId);
+        this.experienceData(empId);
+        this.locationData(empId);
+        this.educationData(empId);
+        this.usersDetails = data;
+      }, (error) => {
+        console.error('Error fetching users details:', error);
+      });
+    } else {
+      alert('Username not found in localStorage');
+    }
   }
 
   changeTab(tabName: string) {
     this.currentTab = tabName;
   }
 
-  changeSubTab(subTab: string): void {
-    this.currentSubTab = subTab;
+  changeSubTab(subTab: string) {
+    this.currentSubTab1 = subTab;
+}
+
+changeSubTab1(subTab: string) {
+  this.currentSubTab2 = subTab;
+}
+
+changeSubTab2(subTab: string) {
+  this.currentSubTab4 = subTab;
 }
 
   // personalDetails
 
-  personalData(){
-    let empId=1;
+  personalData(empId:any){
     this.profile.getProfileData(empId).subscribe((data:any)=>{
       this.personalDetails=data;
     },(error) => {
@@ -64,8 +78,7 @@ export class ProfiledetailsComponent implements OnInit {
 
   // locationData 
 
-  locationData(){
-    let empId = 1;
+  locationData(empId:any){
     this.profile.getLocationData(empId).subscribe((data:any)=>{
       this.locationDetailsTemp=data;
     },(error) => {
@@ -75,8 +88,7 @@ export class ProfiledetailsComponent implements OnInit {
 
   // nationalId
 
-  nationalIdData(){
-    let empId = 1;
+  nationalIdData(empId:any){
     this.profile.getNationalData(empId).subscribe((data:any)=>{
       this.nationalIdDetails=data;
     },(error) => {
@@ -86,9 +98,8 @@ export class ProfiledetailsComponent implements OnInit {
 
   // experienceData
 
-  experienceData(){
-    let empID = 1;
-    this.profile.getExperienceData(empID).subscribe((data:any)=>{
+  experienceData(empId:any){
+    this.profile.getExperienceData(empId).subscribe((data:any)=>{
       this.experienceDetails=data;
     },(error) => {
       console.error('Error fetching Experience details:', error);
@@ -97,9 +108,8 @@ export class ProfiledetailsComponent implements OnInit {
 
   // educationData
 
-  educationData(){
-    let empID = 1;
-    this.profile.getEducationData(empID).subscribe((data:any)=>{
+  educationData(empId:any){
+    this.profile.getEducationData(empId).subscribe((data:any)=>{
       this.educationDetails = data;
     },(error) => {
       console.error('Error fetching education details:', error);

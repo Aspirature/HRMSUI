@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,15 +17,16 @@ export class UserService {
   experienceUrl:any = 'https://localhost:7003/api/Employee/getEmployeeExpDetailsAsync?empID=';
   travelUrl:any = 'https://localhost:7003/api/Employee/getEmployeeNationalDetailsAsync?empID=';
   nationalUrl:any = 'https://localhost:7003/api/Employee/getEmployeeNationalDetailsAsync?empID=';
+  employeeLeaveUrl:any = 'https://localhost:7003/api/Employee/GetEmployeeLeaveDetailsAsync?empId=';
 
-  constructor(private http:HttpClient, private router:Router) { }
+  constructor(private http:HttpClient) { }
 
   getUserData() {
     return this.http.get<any>(this.loginUrl);
   }
 
-  getEmployeeDetailsData(empId:any) {
-    return this.http.get<any>(this.employeeDetailsUrl + empId);
+  getEmployeeDetailsData(userName:any) {
+    return this.http.get<any>(this.employeeDetailsUrl + userName);
   }
 
   getProfileData(empId:any) {
@@ -51,6 +51,14 @@ export class UserService {
 
   getNationalData(empID:number) {
     return this.http.get<any>(this.nationalUrl + empID);
+  }
+
+  getEmployeeLeaveData(empID:number) {
+    return this.http.get<any>(this.employeeLeaveUrl + empID);
+  }
+
+  getEmployeeLeaveDataById(id: number) {
+    return this.http.get<any>(`${this.employeeLeaveUrl}/${id}`);
   }
 
 }

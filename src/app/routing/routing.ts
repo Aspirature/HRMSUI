@@ -58,6 +58,14 @@ export const MainRoutes = [
     {
         path:'manager-leaves',
         loadChildren:() => import('../websites/managerleaves/managerleaves.module').then(m=>m.ManagerleavesModule)
-    }
+    },
+    {
+        path:'manager-leaves/:id',
+        loadChildren:() => import('../websites/managerleaves/managerleaves.module').then(m=>m.ManagerleavesModule)
+    },
+    {
+        path:'colleague',
+        loadChildren:() => import('../websites/colleague/colleague.module').then(m=>m.ColleagueModule)
+    },
 
 ]

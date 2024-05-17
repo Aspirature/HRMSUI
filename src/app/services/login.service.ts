@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class LoginService {
   private isAuthenticated: boolean = false;
   employeeUserName:any;
 
-  constructor(private router:Router,private http:HttpClient) { }
+  constructor(private router:Router,private http:HttpClient,private profile: UserService) { }
 
   loginUrl:any = 'https://localhost:7003/api/User/getUserAsync?userName=';
   
@@ -21,9 +22,24 @@ export class LoginService {
       this.employeeUserName=userName;
       localStorage.setItem('loginSessId', this.employeeUserName);
       this.isAuthenticated = true;
+      this.userData();
       return true;
     }
     return false;
+  }
+
+  userData() {
+    const userName = localStorage.getItem('loginSessId');
+    if (userName) {
+      this.profile.getEmployeeDetailsData(userName).subscribe((data: any) => {
+        const empId: any = data[0].employeeid;
+        localStorage.setItem('employeeId', empId);
+      }, (error) => {
+        console.error('Error fetching users details:', error);
+      });
+    } else {
+      alert('Username not found in localStorage');
+    }
   }
 
   logout(): void {
