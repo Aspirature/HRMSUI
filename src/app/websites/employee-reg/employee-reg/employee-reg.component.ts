@@ -56,7 +56,7 @@ export class EmployeeRegComponent implements OnInit {
   departmentId: number = 0;
   designationId: number = 0;
   roleId:  number = 0;
-  percentage:number=0;
+  percentage:number = 0;
   newlyAddedEmployeeId:number | undefined ;
   totalyearsexp:number = 0;
   lastdrawncts:number = 0;
@@ -112,9 +112,9 @@ export class EmployeeRegComponent implements OnInit {
       addresslinE1: new FormControl('', Validators.required),
       addresslinE2: new FormControl('', Validators.required),
       pincode: new FormControl('', Validators.required),
-      countryid: new FormControl('', Validators.required),
-      stateid: new FormControl('', Validators.required),
-      districtid: new FormControl('', Validators.required),
+      // countryid: new FormControl('', Validators.required),
+      // stateid: new FormControl('', Validators.required),
+      // districtid: new FormControl('', Validators.required),
       country: new FormControl('', Validators.required),
       state: new FormControl('', Validators.required),
       districtname: new FormControl('', Validators.required),
@@ -132,6 +132,29 @@ export class EmployeeRegComponent implements OnInit {
       passportstartdate: new FormControl('', Validators.required),
       passportissueoffice: new FormControl('', Validators.required),
     })
+
+    // EducationDetails
+
+    this.myFormEducationDetails = new FormGroup({
+      coursename: new FormControl('', Validators.required),
+      institutionname: new FormControl('', Validators.required),
+      dateofjoined: new FormControl('', Validators.required),
+      dateofpassedout: new FormControl('', Validators.required),
+      percentage: new FormControl('', Validators.required),
+      institutionaddress: new FormControl('', Validators.required),
+    })
+
+     // ExperineceDetails
+
+     this.myFormExperienceDetails = new FormGroup({
+      companyname: new FormControl('', Validators.required),
+      designation: new FormControl('', Validators.required),
+      startdate: new FormControl('', Validators.required),
+      enddate: new FormControl('', Validators.required),
+      totalyearsexp: new FormControl('', Validators.required),
+      lastdrawncts: new FormControl('', Validators.required),
+    })
+
 
     // TravelDetails
 
@@ -197,6 +220,12 @@ export class EmployeeRegComponent implements OnInit {
     }
   }
 
+  changeDistrictName(){
+    const districtName = this.myFormAddressDetails.get('districtname')?.value;
+
+    // this.districtid = districtId;
+  }
+
   changeRole(data: any) {
     this.roleId = data;
   }
@@ -254,6 +283,7 @@ export class EmployeeRegComponent implements OnInit {
             response => {
               console.log('Form submitted successfully!', response);
               console.log(this.newlyAddedEmployeeId);
+              
               this.newlyAddedEmployeeId=Number(response);
               this.myFormEmployeeDetails.reset();
             },
@@ -304,14 +334,16 @@ export class EmployeeRegComponent implements OnInit {
         addresslinE1: this.myFormAddressDetails.controls['addresslinE1']?.value,
         addresslinE2: this.myFormAddressDetails.controls['addresslinE2']?.value,
         pincode: this.myFormAddressDetails.controls['pincode']?.value,
-         employeeid: Number(this.newlyAddedEmployeeId),
-        // employeeid: 16,
-        countryid: this.countryid,
-        stateid: this.stateid,
-        districtid: this.districtid,
+        //  employeeid: Number(this.newlyAddedEmployeeId),
+        employeeid: 16,
+        countryid: Number(this.countryid),
+        stateid: Number(this.stateid),
+        // districtid: this.districtid,
+        districtid: Number(this.districts.find(x => x.districtname == this.myFormAddressDetails.controls['districtname']?.value)?.districtid),
         country: this.countries.find(x => x.countryid == this.countryid)?.country,
         state: this.states.find(x => x.stateid == this.stateid)?.state,
-        districtname: this.districts.find(x => x.districtid == this.districtid)?.districtname
+        // districtname: this.districts.find(x => x.districtid == this.districtid)?.districtname
+        districtname:  this.myFormAddressDetails.controls['districtname']?.value
       }
 
       console.log(addressDetails, 'addressDetails');
@@ -363,7 +395,8 @@ export class EmployeeRegComponent implements OnInit {
         passportexpdate: this.myFormNationalDetails.controls['passportexpdate']?.value,
         passportstartdate: this.myFormNationalDetails.controls['passportstartdate']?.value,
         passportissueoffice: this.myFormNationalDetails.controls['passportissueoffice']?.value,
-        employeeid: Number(this.newlyAddedEmployeeId)
+        // employeeid: Number(this.newlyAddedEmployeeId),
+        employeeid:16
       }
 
       console.log(nationalDetails, 'nationalDetails');
@@ -411,9 +444,10 @@ export class EmployeeRegComponent implements OnInit {
         institutionname: this.myFormEducationDetails.controls['institutionname']?.value,
         dateofjoined: this.myFormEducationDetails.controls['dateofjoined']?.value,
         dateofpassedout: this.myFormEducationDetails.controls['dateofpassedout']?.value,
-        percentage: this.percentage,
+        percentage: Number(this.myFormEducationDetails.controls['percentage']?.value),
         institutionaddress: this.myFormEducationDetails.controls['institutionaddress']?.value,
-        employeeid: Number(this.newlyAddedEmployeeId)
+        // employeeid: Number(this.newlyAddedEmployeeId),
+        employeeid:16
       }
 
       console.log(eductaionalDetails, 'eductaionalDetails');
@@ -463,9 +497,10 @@ export class EmployeeRegComponent implements OnInit {
         designation: this.myFormExperienceDetails.controls['designation']?.value,
         startdate: this.myFormExperienceDetails.controls['startdate']?.value,
         enddate: this.myFormExperienceDetails.controls['enddate']?.value,
-        totalyearsexp: this.totalyearsexp,
-        lastdrawncts: this.lastdrawncts,
-        employeeid: Number(this.newlyAddedEmployeeId),
+        totalyearsexp: Number(this.myFormExperienceDetails.controls['totalyearsexp']?.value),
+        lastdrawncts: Number(this.myFormExperienceDetails.controls['lastdrawncts']?.value),
+        employeeid:16
+        // employeeid: Number(this.newlyAddedEmployeeId),
       }
 
       console.log(experienceDetails, 'experienceDetails');
@@ -515,7 +550,8 @@ export class EmployeeRegComponent implements OnInit {
         passportstartdate: this.myFormTravelDetails.controls['passportstartdate']?.value,
         passportexpdate: this.myFormTravelDetails.controls['passportexpdate']?.value,
         passportissueoffice: this.myFormTravelDetails.controls['passportissueoffice']?.value,
-        employeeid: Number(this.newlyAddedEmployeeId)
+        employeeid:16
+        // employeeid: Number(this.newlyAddedEmployeeId)
       }
 
       console.log(travelDetails, 'travelDetails');
@@ -561,7 +597,8 @@ export class EmployeeRegComponent implements OnInit {
         employeePersonalId: this.myFormEmergencyDetails.controls['employeePersonalId']?.value,
         dateOfBirth: this.myFormEmergencyDetails.controls['dateOfBirth']?.value,
         placeOfBirth: this.myFormEmergencyDetails.controls['placeOfBirth']?.value,
-        employeeId: Number(this.newlyAddedEmployeeId),
+        employeeId:16,
+        // employeeId: Number(this.newlyAddedEmployeeId),
         bloodGroup: this.myFormEmergencyDetails.controls['bloodGroup']?.value,
         primaryPhNo: this.myFormEmergencyDetails.controls['primaryPhNo']?.value,
         secondaryPhNo: this.myFormEmergencyDetails.controls['secondaryPhNo']?.value,
@@ -612,7 +649,5 @@ export class EmployeeRegComponent implements OnInit {
       this.designations = data;
     });
   }
-
-  
 
 }

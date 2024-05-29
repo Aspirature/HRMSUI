@@ -200,7 +200,7 @@
                                 <div class="col-md-6">
                                     <label for="districts">District</label>
                                     <select id="districts" class="form-control" formControlName="districtname">
-                                      <option *ngFor="let district of districts" [value]="district.districtid">{{ district.districtname }}</option>
+                                      <option *ngFor="let district of districts" [value]="district.districtname">{{ district.districtname }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -223,7 +223,7 @@
                                 <button (click)="deleteAddressRow(i)" class="btn btn-danger">Remove</button>
                             </div>
                         </div>
-                        <!-- <form [formGroup]="myFormAddressDetails" (ngSubmit)="submitAddressRow()">
+                        <form [formGroup]="myFormAddressDetails" (ngSubmit)="submitAddressRow()">
                             <div class="row " style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Address Type:</label>
@@ -237,11 +237,13 @@
                             <div class="row " style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Address Line1:</label>
-                                    <input type="text" class="form-control mt-2" formControlName="addresslinE1" required>
+                                    <input type="text" class="form-control mt-2" formControlName="addresslinE1"
+                                        required>
                                 </div>
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Address Line2:</label>
-                                    <input type="text" class="form-control mt-2" formControlName="addresslinE2" required>
+                                    <input type="text" class="form-control mt-2" formControlName="addresslinE2"
+                                        required>
                                 </div>
                             </div>
 
@@ -251,28 +253,27 @@
                                     <input type="text" class="form-control mt-2" formControlName="pincode" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">Country:</label>
-                                    <select class="form-control" name="country" [(ngModel)]="selectedCountry" (change)="getStateData();" required>
-                                        <option value="undefined">Select Country</option>
-                                        <option *ngFor="let country of countries" [value]="country.countryid">{{ country.country }}</option>
-                                      </select>
+                                    <label for="countries">Country</label>
+                                    <select id="countries" class="form-control" formControlName="country" (change)="onCountryChange()">
+                                        <option *ngFor="let country of countries" [value]="country.countryid">{{
+                                            country.country }}</option>
+                                    </select>
                                 </div>
                             </div>
 
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">State:</label>
-                                    <select class="form-control" name="state" [(ngModel)]="selectedState" (change)="getDistrictData(selectedState);" required>
-                                        <option value="undefined">Select State</option>
-                                        <option *ngFor="let state of states" [value]="state.stateid">{{ state.state }}</option>
-                                      </select>
+                                    <label for="states">State</label>
+                                    <select id="states" class="form-control" formControlName="state" (change)="getDistrictData()">
+                                        <option *ngFor="let state of states" [value]="state.stateid">{{ state.state }}
+                                        </option>
+                                    </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">District:</label>
-                                    <select class="form-control" name="district">
-                                        <option value="undefined">Select District</option>
-                                        <option *ngFor="let district of districts" [value]="district.districtid">{{ district.districtname }}</option>
-                                      </select>
+                                    <label for="districts">District</label>
+                                    <select id="districts" class="form-control" formControlName="districtname">
+                                      <option *ngFor="let district of districts" [value]="district.districtname">{{ district.districtname }}</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -281,7 +282,7 @@
                                     <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
-                        </form> -->
+                        </form>
                     </div>
                 </div>
             </div>
@@ -590,13 +591,13 @@
 
                             <div class="row" style="margin-top: 20px;">
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">Last Drawn CTC:</label>
-                                    <input type="text" class="form-control mt-2" formControlName="lastdrawncts"
+                                    <label style="font-weight: 600;">Total Years Experience:</label>
+                                    <input type="text" class="form-control mt-2" formControlName="totalyearsexp"
                                         required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label style="font-weight: 600;">Total Years Experience:</label>
-                                    <input type="text" class="form-control mt-2" formControlName="totalyearsexp"
+                                    <label style="font-weight: 600;">Last Drawn CTC:</label>
+                                    <input type="text" class="form-control mt-2" formControlName="lastdrawncts"
                                         required>
                                 </div>
                             </div>
@@ -830,7 +831,7 @@
                             <div class="row " style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Date Of Birth:</label>
-                                    <input type="text" class="form-control mt-2" formControlName="dateOfBirth" required>
+                                    <input type="date" class="form-control mt-2" formControlName="dateOfBirth" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Place Of Birth:</label>
@@ -899,7 +900,7 @@
                             <div class="row " style="margin-top: 20px;">
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Date Of Birth:</label>
-                                    <input type="text" class="form-control mt-2" formControlName="dateOfBirth" required>
+                                    <input type="date" class="form-control mt-2" formControlName="dateOfBirth" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label style="font-weight: 600;">Place Of Birth:</label>
